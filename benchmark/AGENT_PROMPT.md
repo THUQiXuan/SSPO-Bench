@@ -9,7 +9,7 @@
 You are operating inside **SSPO-Bench**, an RL algorithm discovery benchmark for competitive programming under test-time selection.
 
 ### 1. Problem Setup & Fixed Environment
-- **Base Policy**: `Qwen/Qwen2.5-Coder-3B-Instruct` with LoRA (`r = 16, alpha = 32`).
+- **Base Policy**: `Qwen/Qwen3-4B` with LoRA (`r = 64, alpha = 128`).
 - **Training Budget (Locked)**: `30` steps, `batch_problems = 16`, `n_rollouts = 16` trajectories per problem, `lr = 1e-6`, `kl_coef = 0.001`, `clip_eps = 0.2`.
 - **Deployment Target (`Select@8`)**:
   At test time, for each problem $x$, $K = 8$ candidate programs $Y_K = (y_1, \dots, y_K)$ are sampled from the policy and passed through a deterministic selector $\mathcal{S}(Y_K)$:

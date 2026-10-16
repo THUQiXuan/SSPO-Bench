@@ -20,7 +20,7 @@
     "sspo/selector.py": "0c44f2437c9f1a130dca44997a4ab46661874a89717bc99434f7aaa9c659ae3b",
     "sspo/trainer.py": "232843ff0c7eedf30ad7850d16975ca317d44ad601006cc21628465958e06816",
     "sspo/verl_patch.py": "b78f919dfa0585368000947bccf7869e405917c1b7732d5681a8c793ec5ce4ae",
-    "configs/benchmark_locked.yaml": "f8f387081e4a2ab123a7bfa93d0bfef059bdfa2f57f1c1ad5626766eb1d7df94",
+    "configs/benchmark_locked.yaml": "c9c81adae9d33bd422a515b5fe4ab225d6538065b5510a98db39454032afe170",
     "configs/pilot.yaml": "03d092855931356e1c0450028458c252680b2a6e8564c6f1a27ede07f55be0a7",
     "configs/smoke.yaml": "92b659f7b139e13aad4363868c68e277f14c6027a7ac466428764b73477fdf3b",
     "data/train.jsonl": "68144af2792a810cc0d2033e13704d58a207d621eae98316ca66efd8f88e912e",

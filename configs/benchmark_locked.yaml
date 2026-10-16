@@ -4,9 +4,9 @@ experiment_name: "sspo_bench_agent"
 mode: "pilot"
 
 model:
-  base_model_id: "Qwen/Qwen2.5-Coder-3B-Instruct"
-  lora_rank: 16
-  lora_alpha: 32
+  base_model_id: "Qwen/Qwen3-4B"
+  lora_rank: 64
+  lora_alpha: 128
 
 data:
   source: "code_contests"

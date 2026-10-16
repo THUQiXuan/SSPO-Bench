@@ -1,7 +1,7 @@
 # SSPO-Bench Official Baseline Leaderboard
 
 All baselines are trained and evaluated under the locked SSPO-Bench protocol:
-- **Base Policy**: `Qwen/Qwen2.5-Coder-3B-Instruct` (LoRA `r=16, alpha=32`)
+- **Base Policy**: `Qwen/Qwen3-4B` (LoRA `r=64, alpha=128`)
 - **Training Budget**: `30` steps (`20` steps for `checker_reward`), `batch_problems=16`, `n_rollouts=16`, `k_deploy=8`, `lr=1e-6`, `kl_coef=0.001`, `clip_eps=0.2`
 - **Evaluation Protocol**: `100` held-out test problems, `N_eval=16` rollouts per problem at `temperature=1.0`, `K=8` deployment budget with public-example filter + execution-signature majority-vote selector $\mathcal{S}$.
 
@@ -16,7 +16,7 @@ All baselines are trained and evaluated under the locked SSPO-Bench protocol:
 | **`drgrpo_pass1`** *(Starting Agent Template)* | 1 | 2 | **18.44%** | 16.54% | 11.78% | 24.74% | 9.41% | 1.50% | Standard `Pass@1` Dr. GRPO on $g(y)$ |
 | **`sspo`** *(Selection-Aware RL)* | 1 | 3 | **18.21%** | 17.34% | 12.33% | 25.16% | 9.73% | 1.00% | DP leave-one-out selector marginal credit ($\alpha=0.7$) |
 | **`checker_reward`** *(Public-Only RL)* | 1 | 1 | 18.12% | 15.68% | 11.94% | 24.35% | 9.56% | 0.00% | Collapses at step 20 (`-1.16 pt` below `frozen`) due to false positives |
-| **`frozen`** *(Untrained Base Model)* | 1 | 1 | 16.84% | 16.84% | 11.12% | 23.00% | 8.75% | 0.00% | Zero-shot `Qwen2.5-Coder-3B-Instruct` |
+| **`frozen`** *(Untrained Base Model)* | 1 | 1 | 16.84% | 16.84% | 11.12% | 23.00% | 8.75% | 0.00% | Zero-shot `Qwen3-4B` |
 
 ---
 

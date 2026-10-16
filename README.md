@@ -27,7 +27,7 @@ Candidates partition into:
 
 ## 2. Official Baseline Leaderboard (`Select@8`, 100 Held-Out Test Problems)
 
-All baseline algorithms were trained and evaluated under the locked SSPO-Bench protocol (`Qwen/Qwen2.5-Coder-3B-Instruct`, LoRA $r=16, \alpha=32$, `30` training steps, `batch_problems=16`, $N_{\text{train}}=16, K=8$, evaluated with $N_{\text{eval}}=16$ rollouts per problem across 100 test problems).
+All baseline algorithms were trained and evaluated under the locked SSPO-Bench protocol (`Qwen/Qwen3-4B`, LoRA $r=64, \alpha=128$, `30` training steps, `batch_problems=16`, $N_{\text{train}}=16, K=8$, evaluated with $N_{\text{eval}}=16$ rollouts per problem across 100 test problems).
 
 | Method (`arm`) | Turns | Seeds | Best `Select@8` | Final `Select@8` (`step_0030`) | `Pass@1` (Best) | `Pass@8` (Best) | `Chk` Pass Rate | Cluster Impure Rate | Summary |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---|
@@ -36,7 +36,7 @@ All baseline algorithms were trained and evaluated under the locked SSPO-Bench p
 | **`drgrpo_pass1`** *(Default Agent Template)* | 1 | 2 | **18.44%** | 16.54% | 11.78% | 24.74% | 9.41% | 1.50% | Standard `Pass@1` Dr. GRPO on $g(y)$ |
 | **`sspo`** *(Selection-Aware RL)* | 1 | 3 | **18.21%** | 17.34% | 12.33% | 25.16% | 9.73% | 1.00% | DP leave-one-out selector marginal credit ($\alpha=0.7$) |
 | **`checker_reward`** *(Public-Only RL)* | 1 | 1 | 18.12% | 15.68% | 11.94% | 24.35% | 9.56% | 0.00% | Collapses at step 20 (`-1.16 pt` below `frozen`) due to false positives |
-| **`frozen`** *(Untrained Base Model)* | 1 | 1 | 16.84% | 16.84% | 11.12% | 23.00% | 8.75% | 0.00% | Zero-shot `Qwen2.5-Coder-3B-Instruct` |
+| **`frozen`** *(Untrained Base Model)* | 1 | 1 | 16.84% | 16.84% | 11.12% | 23.00% | 8.75% | 0.00% | Zero-shot `Qwen3-4B` |
 
 - Detailed per-seed metrics: [`leaderboard/LEADERBOARD.md`](leaderboard/LEADERBOARD.md) & [`leaderboard/baselines.json`](leaderboard/baselines.json)
 - Full 47-checkpoint progression table: [`results/tables/checkpoint_progression.csv`](results/tables/checkpoint_progression.csv)

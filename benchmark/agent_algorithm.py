@@ -8,7 +8,7 @@ All other files in the repository (`sspo/*`, `configs/*`, `data/*`, `benchmark/v
 `benchmark/evaluate_agent.py`) are cryptographically locked via SHA-256 hashes.
 
 ### Problem Setting
-We train a code generation policy (`Qwen/Qwen2.5-Coder-3B-Instruct` with LoRA r=16)
+We train a code generation policy (`Qwen/Qwen3-4B` with LoRA r=64)
 that will be deployed at test time with **Test-Time Selection (`Select@K`)**:
 - At deployment time, for each problem `x`, `K = 8` candidate programs are sampled
   and passed through a deterministic selector `S(Y_K)`:

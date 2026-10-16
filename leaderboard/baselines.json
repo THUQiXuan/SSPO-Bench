@@ -1,9 +1,9 @@
 {
   "benchmark_name": "SSPO-Bench v1.0",
-  "base_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "base_model": "Qwen/Qwen3-4B",
   "lora_config": {
-    "rank": 16,
-    "alpha": 32
+    "rank": 64,
+    "alpha": 128
   },
   "eval_protocol": {
     "n_problems": 100,
@@ -27,7 +27,7 @@
   "baselines": [
     {
       "arm": "frozen",
-      "description": "Untrained base model (Qwen2.5-Coder-3B-Instruct)",
+      "description": "Untrained base model (Qwen3-4B)",
       "turns": 1,
       "seeds": [0],
       "best_ckpt": {
