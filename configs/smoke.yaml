@@ -1,0 +1,54 @@
+# Smoke configuration: 8 problems, n = 8 rollouts, 2 steps (verifies environment in < 10 minutes)
+experiment_name: "sspo_smoke"
+mode: "smoke"
+
+data:
+  source: "sample"
+  train_file: "data/train.jsonl"
+  dev_file: "data/dev.jsonl"
+  test_file: "data/test.jsonl"
+  max_train_problems: 8
+  max_eval_problems: 8
+
+checker:
+  version: "v1"
+  cache_dir: "cache"
+  timeout_seconds: 6.0
+  memory_limit_gb: 2
+  n_generators: 4
+  n_bruteforce: 4
+  n_validators: 2
+  min_ref_agree: 2
+  enable_thinking: false
+
+rollout:
+  turns: 1
+  temperature: 1.0
+  top_p: 1.0
+  max_tokens: 2048
+  max_context_length: 8192
+
+train:
+  arm: "sspo"
+  n_rollouts: 8
+  k_deploy: 4
+  alpha: 0.7
+  center_select: "none"
+  batch_problems: 8
+  total_steps: 2
+  checker_reward_steps: 2
+  save_every: 1
+  lr: 1.0e-6
+  kl_coef: 0.001
+  clip_eps: 0.2
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  resume: true
+  backend: "native"
+
+eval:
+  n_eval: 8
+  k_list: [1, 2, 4, 8]
+  n_subsets: 200
+  subset_seed: 42
+  bootstrap_samples: 200

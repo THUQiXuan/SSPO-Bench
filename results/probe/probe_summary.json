@@ -1,0 +1,65 @@
+{
+  "k": 8,
+  "blind_direction_probes": [
+    {
+      "case": "P=0.3_q=0.2",
+      "p_C": 0.06,
+      "p_W1": 0.24,
+      "delta_step": 0.01,
+      "delta_J_cov": 0.0,
+      "delta_J_S_actual": 0.007712,
+      "delta_J_S_first_order": 0.007574,
+      "relative_agreement": 1.0182
+    },
+    {
+      "case": "P=0.4_q=0.25",
+      "p_C": 0.1,
+      "p_W1": 0.3,
+      "delta_step": 0.01,
+      "delta_J_cov": 0.0,
+      "delta_J_S_actual": 0.009027,
+      "delta_J_S_first_order": 0.008858,
+      "relative_agreement": 1.0191
+    },
+    {
+      "case": "P=0.5_q=0.3",
+      "p_C": 0.15,
+      "p_W1": 0.35,
+      "delta_step": 0.01,
+      "delta_J_cov": 0.0,
+      "delta_J_S_actual": 0.009851,
+      "delta_J_S_first_order": 0.009678,
+      "relative_agreement": 1.018
+    }
+  ],
+  "proposition_c_thresholds": [
+    {
+      "P": 0.3,
+      "q": 0.1,
+      "rho": 0.184,
+      "kappa_star": 0.3342,
+      "can_reverse": true
+    },
+    {
+      "P": 0.3,
+      "q": 0.2,
+      "rho": 0.331,
+      "kappa_star": 0.1871,
+      "can_reverse": true
+    },
+    {
+      "P": 0.3,
+      "q": 0.3,
+      "rho": 0.463,
+      "kappa_star": 0.0546,
+      "can_reverse": true
+    },
+    {
+      "P": 0.1,
+      "q": 0.2,
+      "rho": 0.09,
+      "kappa_star": 0.0,
+      "can_reverse": false
+    }
+  ]
+}

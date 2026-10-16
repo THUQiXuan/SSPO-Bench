@@ -1,0 +1,50 @@
+{
+  "run_name": "drgrpo_pass1_seed0",
+  "n_problems": 100,
+  "pass_at_k": {
+    "1": 0.115,
+    "2": 0.15425,
+    "4": 0.200137,
+    "8": 0.247402,
+    "16": 0.29
+  },
+  "cov_at_k": {
+    "1": 0.088125,
+    "2": 0.114833,
+    "4": 0.146714,
+    "8": 0.181268,
+    "16": 0.21
+  },
+  "select_at_k": {
+    "1": 0.087,
+    "2": 0.113225,
+    "4": 0.148008,
+    "8": 0.179092,
+    "16": 0.2075
+  },
+  "select_at_k_exact": {
+    "1": 0.088125,
+    "2": 0.114708,
+    "4": 0.146103,
+    "8": 0.17986,
+    "16": 0.2075
+  },
+  "gap_at_k": {
+    "1": 0.001125,
+    "2": 0.001608,
+    "4": -0.001294,
+    "8": 0.002176,
+    "16": 0.0025
+  },
+  "selector_gain_k_vs_pass1": 0.064092,
+  "critical_problem_rate": 0.02,
+  "cluster_impure_rate": 0.02,
+  "eps_hat_mean": 0.026875,
+  "chk_pass_rate_mean": 0.093125,
+  "arm": "drgrpo_pass1",
+  "seed": 0,
+  "eval_file": "results/drgrpo_pass1_seed0/eval/test_step_0015.jsonl",
+  "ckpt": "step_0015",
+  "latest_ckpt": "step_0030",
+  "latest_select_at_8": 0.156947
+}

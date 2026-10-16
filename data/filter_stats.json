@@ -1,0 +1,16 @@
+{
+  "total_raw": 1400,
+  "kept": 1088,
+  "removed_total": 312,
+  "removed_fraction": 0.2229,
+  "removed_by_reason": {
+    "insufficient_tests": 73,
+    "multi_answer_statement": 235,
+    "inconsistent_expected_outputs": 4
+  },
+  "counts_by_split": {
+    "train": 500,
+    "dev": 100,
+    "test": 100
+  }
+}

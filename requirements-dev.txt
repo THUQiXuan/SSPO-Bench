@@ -1,0 +1,9 @@
+# Lightweight CPU-only local development & test dependencies (for macOS / CPU verification of Section 5 tests)
+# NOTE: Only for local GPU-free testing (`scripts/check_local.sh`). For GPU experiments, run `bash scripts/setup_env.sh`.
+torch>=2.2.0
+numpy>=1.26.0
+pytest>=8.0.0
+pyyaml>=6.0.0
+datasets>=2.18.0
+huggingface-hub>=0.23.0
+pyarrow>=15.0.0

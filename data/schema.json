@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SSPO Dataset & Output Schemas",
+  "schemas": {
+    "problem_record": {
+      "description": "One problem row in data/{train,dev,test,sample_problems}.jsonl",
+      "type": "object",
+      "required": ["pid", "source", "split", "contest_id", "difficulty", "timeout", "question", "public", "hidden"],
+      "properties": {
+        "pid": {"type": "string", "description": "Unique problem identifier"},
+        "source": {"type": "string", "enum": ["code_contests", "taco", "livecodebench", "sample"]},
+        "split": {"type": "string", "enum": ["train", "dev", "valid", "test"]},
+        "contest_id": {"type": "string", "description": "Contest cluster identifier for two-level bootstrap"},
+        "difficulty": {"type": "string"},
+        "timeout": {"type": "number", "default": 6.0},
+        "question": {"type": "string", "description": "Problem statement in plain text / markdown"},
+        "public": {
+          "type": "array",
+          "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string"}},
+          "description": "List of [input_str, expected_output_str] public examples"
+        },
+        "hidden": {
+          "type": "array",
+          "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string"}},
+          "description": "List of [input_str, expected_output_str] hidden tests"
+        },
+        "reference_solution": {"type": ["string", "null"], "description": "Optional reference Python 3 solution"}
+      }
+    },
+    "metrics_row": {
+      "description": "One training step row in results/<run_name>/metrics.jsonl",
+      "type": "object",
+      "required": [
+        "step", "arm", "seed", "n_problems", "n_active_problems", "n_dropped_zero_adv",
+        "counts", "adv_stats", "loss", "pg_loss", "kl", "grad_norm",
+        "cluster_impure_rate", "eps_hat", "chk_pass_rate", "pass_at_1_batch",
+        "wall_time_s", "cache_hit_rate"
+      ]
+    },
+    "eval_row": {
+      "description": "One evaluated problem row in results/<run_name>/eval/<set>_<ckpt>.jsonl",
+      "type": "object",
+      "required": [
+        "pid", "contest_id", "n_eval", "k_list", "pass_at_k", "cov_at_k", "select_at_k", "gap_at_k",
+        "n_subsets", "subset_seed", "is_critical", "cluster_impure", "eps_hat", "chk_pass_rate", "counts"
+      ]
+    }
+  }
+}

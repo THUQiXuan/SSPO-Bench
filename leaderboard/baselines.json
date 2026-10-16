@@ -1,0 +1,183 @@
+{
+  "benchmark_name": "SSPO-Bench v1.0",
+  "base_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "lora_config": {
+    "rank": 16,
+    "alpha": 32
+  },
+  "eval_protocol": {
+    "n_problems": 100,
+    "n_eval_rollouts": 16,
+    "k_deploy": 8,
+    "k_list": [1, 2, 4, 8, 16],
+    "temperature": 1.0,
+    "n_subsets": 200,
+    "subset_seed": 42
+  },
+  "diagnostic_gate": {
+    "n_problems": 100,
+    "pass_at_1": 0.1412,
+    "cov_at_8": 0.2109,
+    "select_at_8": 0.1993,
+    "selector_gain_over_pass1": 0.0581,
+    "selection_gap_at_8": 0.0115,
+    "dp_vs_bruteforce_max_diff": 0.0,
+    "blind_direction_taylor_ratio": 1.0185
+  },
+  "baselines": [
+    {
+      "arm": "frozen",
+      "description": "Untrained base model (Qwen2.5-Coder-3B-Instruct)",
+      "turns": 1,
+      "seeds": [0],
+      "best_ckpt": {
+        "pass_at_1": 0.1112,
+        "pass_at_8": 0.2300,
+        "cov_at_8": 0.1671,
+        "select_at_8": 0.1684,
+        "gap_at_8": -0.0013,
+        "chk_pass_rate": 0.0875,
+        "cluster_impure_rate": 0.0000
+      },
+      "final_ckpt": {
+        "step": 0,
+        "pass_at_1": 0.1112,
+        "pass_at_8": 0.2300,
+        "select_at_8": 0.1684
+      }
+    },
+    {
+      "arm": "checker_reward",
+      "description": "Dr. GRPO on public example checker reward Chk(y) only (Proposition C false-positive collapse baseline)",
+      "turns": 1,
+      "seeds": [0],
+      "best_ckpt": {
+        "step": 15,
+        "pass_at_1": 0.1194,
+        "pass_at_8": 0.2435,
+        "cov_at_8": 0.1802,
+        "select_at_8": 0.1812,
+        "gap_at_8": -0.0010,
+        "chk_pass_rate": 0.0956,
+        "cluster_impure_rate": 0.0000
+      },
+      "final_ckpt": {
+        "step": 20,
+        "pass_at_1": 0.1200,
+        "pass_at_8": 0.2354,
+        "select_at_8": 0.1568
+      }
+    },
+    {
+      "arm": "drgrpo_pass1",
+      "description": "Standard Pass@1 Dr. GRPO on hidden test reward g(y) (Default starting template in benchmark/agent_algorithm.py)",
+      "turns": 1,
+      "seeds": [0, 1],
+      "best_ckpt": {
+        "pass_at_1": 0.1178,
+        "pass_at_8": 0.2474,
+        "cov_at_8": 0.1851,
+        "select_at_8": 0.1844,
+        "select_at_8_per_seed": {
+          "0": 0.1791,
+          "1": 0.1896
+        },
+        "gap_at_8": 0.0007,
+        "chk_pass_rate": 0.0941,
+        "cluster_impure_rate": 0.0150
+      },
+      "final_ckpt": {
+        "step": 30,
+        "pass_at_1": 0.1188,
+        "pass_at_8": 0.2423,
+        "select_at_8": 0.1654,
+        "select_at_8_per_seed": {
+          "0": 0.1569,
+          "1": 0.1738
+        }
+      }
+    },
+    {
+      "arm": "pkpo_pass8",
+      "description": "PKPO Pass@8 coverage-aware policy optimization on g(y)",
+      "turns": 1,
+      "seeds": [0, 1],
+      "best_ckpt": {
+        "pass_at_1": 0.1228,
+        "pass_at_8": 0.2585,
+        "cov_at_8": 0.1850,
+        "select_at_8": 0.1845,
+        "select_at_8_per_seed": {
+          "0": 0.1815,
+          "1": 0.1875
+        },
+        "gap_at_8": 0.0005,
+        "chk_pass_rate": 0.0944,
+        "cluster_impure_rate": 0.0050
+      },
+      "final_ckpt": {
+        "step": 30,
+        "pass_at_1": 0.1235,
+        "pass_at_8": 0.2546,
+        "select_at_8": 0.1803,
+        "select_at_8_per_seed": {
+          "0": 0.1815,
+          "1": 0.1790
+        }
+      }
+    },
+    {
+      "arm": "sspo",
+      "description": "Single-turn Selection-Aware Policy Optimization (alpha = 0.7, DP leave-one-out selector credit assignment)",
+      "turns": 1,
+      "seeds": [0, 1, 2],
+      "best_ckpt": {
+        "pass_at_1": 0.1233,
+        "pass_at_8": 0.2516,
+        "cov_at_8": 0.1851,
+        "select_at_8": 0.1821,
+        "select_at_8_per_seed": {
+          "0": 0.1833,
+          "1": 0.1841,
+          "2": 0.1788
+        },
+        "gap_at_8": 0.0030,
+        "chk_pass_rate": 0.0973,
+        "cluster_impure_rate": 0.0100
+      },
+      "final_ckpt": {
+        "step": 30,
+        "pass_at_1": 0.1213,
+        "pass_at_8": 0.2448,
+        "select_at_8": 0.1734,
+        "select_at_8_per_seed": {
+          "0": 0.1684,
+          "1": 0.1841,
+          "2": 0.1677
+        }
+      }
+    },
+    {
+      "arm": "sspo_turns2",
+      "description": "Two-turn execution feedback + Selection-Aware Policy Optimization (reference multi-turn ceiling)",
+      "turns": 2,
+      "seeds": [0],
+      "best_ckpt": {
+        "step": 5,
+        "pass_at_1": 0.1363,
+        "pass_at_8": 0.2703,
+        "cov_at_8": 0.2005,
+        "select_at_8": 0.1988,
+        "gap_at_8": 0.0018,
+        "chk_pass_rate": 0.1056,
+        "cluster_impure_rate": 0.0200
+      },
+      "final_ckpt": {
+        "step": 30,
+        "pass_at_1": 0.1156,
+        "pass_at_8": 0.2339,
+        "select_at_8": 0.1556
+      }
+    }
+  ]
+}

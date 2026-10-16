@@ -1,0 +1,2 @@
+stage,config,n_problems,n_rollouts,k_deploy,pass_at_1,cov_at_8,select_at_8,selector_gain,selection_gap_at_8,critical_problem_rate,cluster_impure_rate,eps_hat,chk_pass_rate,dp_vs_bruteforce_max_diff,active_train_pool_count,active_train_file,gate1_passed
+diag,configs/pilot.yaml,100,16,8,0.14125,0.21089,0.199341,0.058091,0.011549,0.05,0.03,0.025,0.14625,0.0,19,data/train_active.jsonl,False
