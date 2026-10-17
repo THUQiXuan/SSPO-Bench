@@ -1,0 +1,5 @@
+arm_a,arm_b,metric,n_problems,n_clusters,mean_diff,ci_low,ci_high,se,p_value,p_value_holm,win
+sspo,drgrpo_pass1,select@8,100,56,-0.002303,-0.021979,0.019799,0.010636,0.794,1.0,False
+sspo,pkpo_pass8,select@8,100,56,-0.002482,-0.025477,0.020419,0.01129,0.84,1.0,False
+sspo,frozen,select@8,100,56,0.013618,-0.00558,0.035898,0.010525,0.181,0.724,False
+sspo,checker_reward,select@8,100,56,0.000868,-0.02167,0.022296,0.011145,0.893,1.0,False

@@ -1,0 +1,50 @@
+{
+  "run_name": "checker_reward_seed0",
+  "n_problems": 100,
+  "pass_at_k": {
+    "1": 0.119375,
+    "2": 0.1595,
+    "4": 0.202566,
+    "8": 0.243485,
+    "16": 0.29
+  },
+  "cov_at_k": {
+    "1": 0.09125,
+    "2": 0.118417,
+    "4": 0.148154,
+    "8": 0.180211,
+    "16": 0.22
+  },
+  "select_at_k": {
+    "1": 0.0909,
+    "2": 0.1175,
+    "4": 0.148125,
+    "8": 0.1812,
+    "16": 0.22
+  },
+  "select_at_k_exact": {
+    "1": 0.09125,
+    "2": 0.118167,
+    "4": 0.14756,
+    "8": 0.180015,
+    "16": 0.22
+  },
+  "gap_at_k": {
+    "1": 0.00035,
+    "2": 0.000917,
+    "4": 2.9e-05,
+    "8": -0.000989,
+    "16": 0.0
+  },
+  "selector_gain_k_vs_pass1": 0.061825,
+  "critical_problem_rate": 0.01,
+  "cluster_impure_rate": 0.0,
+  "eps_hat_mean": 0.028125,
+  "chk_pass_rate_mean": 0.095625,
+  "arm": "checker_reward",
+  "seed": 0,
+  "eval_file": "results/checker_reward_seed0/eval/test_step_0015.jsonl",
+  "ckpt": "step_0015",
+  "latest_ckpt": "step_0020",
+  "latest_select_at_8": 0.156775
+}

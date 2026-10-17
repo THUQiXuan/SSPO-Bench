@@ -201,6 +201,37 @@ def compute_sspo_advantages(
     )
 
 
+def load_policy_module_for_arm(arm: str):
+    """Load the benchmark policy module (`compute_group_advantages`, `compute_policy_loss`) for `arm`."""
+    import importlib
+    import importlib.util
+    import os
+    from pathlib import Path
+    from sspo.atomic_io import REPO_ROOT
+
+    custom_file = os.environ.get("SSPO_AGENT_ALGO_FILE")
+    if arm == "agent" and custom_file:
+        p = Path(custom_file)
+        if not p.is_absolute():
+            p = REPO_ROOT / p
+        spec = importlib.util.spec_from_file_location("sspo_custom_agent_algo", str(p))
+        assert spec is not None and spec.loader is not None
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    if arm in ("sspo", "drgrpo_pass1", "pkpo_pass8", "checker_reward"):
+        return importlib.import_module(f"benchmark.reference_algorithms.{arm}")
+
+    return importlib.import_module("benchmark.agent_algorithm")
+
+
+def get_policy_loss_fn_for_arm(arm: str):
+    """Return `compute_policy_loss(batch: PolicyLossBatch)` from the corresponding benchmark policy module."""
+    mod = load_policy_module_for_arm(arm)
+    return mod.compute_policy_loss
+
+
 def compute_arm_advantages(
     arm: str,
     g_list: Sequence[int],
@@ -219,16 +250,17 @@ def compute_arm_advantages(
     turn_count: int = 1,
 ) -> AdvantageResult:
     """Compute advantages for any of the training arms:
-    - `agent`: Agent-editable RL algorithm in `benchmark/agent_algorithm.py`
-    - `sspo`: full SSPO objective (`alpha = 0.7`, `J^-`)
-    - `drgrpo_pass1`: Dr. GRPO on gold hidden test reward `g(y)` (`k = 1`)
-    - `pkpo_pass8`: PKPO pass@8 objective on `g(y)` (`k = 8`, `alpha = 0`)
-    - `checker_reward`: Dr. GRPO on checker reward `Chk(y)` (reward-hacking probe arm)
+    - `agent`: Agent-editable RL algorithm in `benchmark/agent_algorithm.py` (or `SSPO_AGENT_ALGO_FILE`)
+    - `sspo`: full SSPO objective (`alpha = 0.7`, `J^-`, `benchmark/reference_algorithms/sspo.py`)
+    - `drgrpo_pass1`: Dr. GRPO on gold hidden test reward `g(y)` (`k = 1`, `benchmark/reference_algorithms/drgrpo_pass1.py`)
+    - `pkpo_pass8`: PKPO pass@8 objective on `g(y)` (`k = 8`, `alpha = 0`, `benchmark/reference_algorithms/pkpo_pass8.py`)
+    - `checker_reward`: Dr. GRPO on checker reward `Chk(y)` (`benchmark/reference_algorithms/checker_reward.py`)
     """
     n = len(g_list)
     if arm == "agent":
-        from benchmark.agent_algorithm import GroupContext, compute_group_advantages
+        from benchmark.agent_algorithm import GroupContext
 
+        mod = load_policy_module_for_arm("agent")
         group = classify_candidates(g_list, chk_list, sig_list, sigma_plus=sigma_plus)
         ctx = GroupContext(
             pid=str(pid),
@@ -247,7 +279,7 @@ def compute_arm_advantages(
             turn_count=int(turn_count),
             history_state={"sigma_plus": sorted(sigma_plus or ())},
         )
-        out = compute_group_advantages(ctx)
+        out = mod.compute_group_advantages(ctx)
         adv = np.asarray(out.advantages, dtype=np.float64).reshape(-1)
         if adv.shape[0] != n:
             raise ValueError(f"Agent compute_group_advantages returned shape {adv.shape}, expected ({n},)")

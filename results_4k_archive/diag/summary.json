@@ -1,0 +1,20 @@
+{
+  "stage": "diag",
+  "config": "configs/pilot.yaml",
+  "n_problems": 100,
+  "n_rollouts": 16,
+  "k_deploy": 8,
+  "pass_at_1": 0.14125,
+  "cov_at_8": 0.21089,
+  "select_at_8": 0.199341,
+  "selector_gain": 0.058091,
+  "selection_gap_at_8": 0.011549,
+  "critical_problem_rate": 0.05,
+  "cluster_impure_rate": 0.03,
+  "eps_hat": 0.025,
+  "chk_pass_rate": 0.14625,
+  "dp_vs_bruteforce_max_diff": 0.0,
+  "active_train_pool_count": 19,
+  "active_train_file": "data/train_active.jsonl",
+  "gate1_passed": false
+}

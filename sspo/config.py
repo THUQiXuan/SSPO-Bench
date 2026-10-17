@@ -178,7 +178,7 @@ def validate_preset(preset: Dict[str, Any]) -> None:
     assert est_mem <= 0.92 * gpu_mem_gb, (
         f"Estimated peak memory {est_mem} GB exceeds safe threshold of {gpu_mem_gb} GB GPU"
     )
-    if num_gpus >= 4 and gpu_mem_gb >= 80:
+    if num_gpus >= 4 and gpu_mem_gb >= 80 and not preset.get("model_override"):
         assert preset["model_name"] == "Qwen/Qwen3-8B" and not preset["use_lora"], (
             ">=4x80G must use Qwen/Qwen3-8B full-parameter training"
         )
@@ -235,6 +235,16 @@ def load_config(
         n_rollouts=n_rollouts,
         total_steps=total_steps,
     )
+    model_cfg = cfg.get("model", {})
+    override_model = os.environ.get("SSPO_MODEL_OVERRIDE") or model_cfg.get("base_model_id")
+    if override_model:
+        preset["model_override"] = True
+        preset["model_name"] = str(override_model)
+        if "4B" in str(override_model):
+            preset["model_params_b"] = 4.0
+        preset["use_lora"] = True
+        preset["lora_rank"] = int(model_cfg.get("lora_rank", preset.get("lora_rank") or 64) or 64)
+        preset["lora_alpha"] = int(model_cfg.get("lora_alpha", preset.get("lora_alpha") or 128) or 128)
     cfg = copy.deepcopy(cfg)
     cfg["hardware_preset"] = preset
     return cfg

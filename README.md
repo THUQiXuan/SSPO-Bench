@@ -2,7 +2,7 @@
 
 **SSPO-Bench** is a self-contained benchmark environment designed to evaluate **AI Research & Coding Agents** on their ability to discover and implement novel **Reinforcement Learning (RL) algorithms** for code generation under **test-time selection (`Select@K`)**.
 
-Unlike hyperparameter sweeps or unconstrained repo edits, SSPO-Bench fixes the base model, dataset splits, rollout budget, optimizer hyperparameters, and evaluation protocol—isolating the **RL credit assignment and policy loss objective** inside a single, verified sandbox module ([`benchmark/agent_algorithm.py`](benchmark/agent_algorithm.py)).
+Unlike hyperparameter sweeps or unconstrained repo edits, SSPO-Bench fixes the base model (`Qwen/Qwen3-4B` with full `40,960`-token context window), calibrated dataset splits, rollout budget, optimizer hyperparameters, and evaluation protocol—isolating the **RL credit assignment and policy loss objective** inside a single, verified sandbox module ([`benchmark/agent_algorithm.py`](benchmark/agent_algorithm.py)).
 
 ---
 
@@ -25,23 +25,24 @@ Candidates partition into:
 
 ---
 
-## 2. Official Baseline Leaderboard (`Select@8`, 100 Held-Out Test Problems)
+## 2. Official Baseline Leaderboard (`Select@8`, 100 Held-Out Test Problems @ `40,960` Context)
 
-All baseline algorithms were trained and evaluated under the locked SSPO-Bench protocol (`Qwen/Qwen3-4B`, LoRA $r=64, \alpha=128$, `30` training steps, `batch_problems=16`, $N_{\text{train}}=16, K=8$, evaluated with $N_{\text{eval}}=16$ rollouts per problem across 100 test problems).
+All baseline algorithms were trained and evaluated under the locked SSPO-Bench protocol (`Qwen/Qwen3-4B`, `max_context_length=40960`, `max_tokens=8192`, `max_train_seq_len=8192`, LoRA $r=64, \alpha=128$, `30` training steps, `batch_problems=16`, $N_{\text{train}}=16, K=8$, evaluated with $N_{\text{eval}}=16$ rollouts per problem across 100 held-out test problems).
 
-| Method (`arm`) | Turns | Seeds | Best `Select@8` | Final `Select@8` (`step_0030`) | `Pass@1` (Best) | `Pass@8` (Best) | `Chk` Pass Rate | Cluster Impure Rate | Summary |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| **`sspo_turns2`** *(Multi-Turn Reference)* | 2 | 1 | **19.88%** | 15.56% | **13.63%** | **27.03%** | **10.56%** | 2.00% | 2-turn public checker execution feedback + SSPO |
-| **`pkpo_pass8`** *(Coverage RL)* | 1 | 2 | **18.45%** | **18.03%** | 12.28% | 25.85% | 9.44% | 0.50% | Exact `Pass@8` LOO estimator on $g(y)$ |
-| **`drgrpo_pass1`** *(Default Agent Template)* | 1 | 2 | **18.44%** | 16.54% | 11.78% | 24.74% | 9.41% | 1.50% | Standard `Pass@1` Dr. GRPO on $g(y)$ |
-| **`sspo`** *(Selection-Aware RL)* | 1 | 3 | **18.21%** | 17.34% | 12.33% | 25.16% | 9.73% | 1.00% | DP leave-one-out selector marginal credit ($\alpha=0.7$) |
-| **`checker_reward`** *(Public-Only RL)* | 1 | 1 | 18.12% | 15.68% | 11.94% | 24.35% | 9.56% | 0.00% | Collapses at step 20 (`-1.16 pt` below `frozen`) due to false positives |
-| **`frozen`** *(Untrained Base Model)* | 1 | 1 | 16.84% | 16.84% | 11.12% | 23.00% | 8.75% | 0.00% | Zero-shot `Qwen3-4B` |
+| Method (`arm`) | Turns | Seeds | Best `Select@8` | Final `Select@8` (`step_0030`) | Val-Selected Test `Select@8` | `Pass@1` (Best) | `Pass@8` (Best) | `Chk` Pass Rate | Cluster Impure Rate | Summary |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| **`sspo_turns2`** *(Multi-Turn Reference)* | 2 | 1 | **43.22%** | **43.22%** | **41.78%** | **22.06%** | **48.04%** | **24.31%** | 10.00% | 2-turn public checker execution feedback + SSPO (`+4.58 pt` over `frozen`) |
+| **`sspo`** *(Selection-Aware RL)* | 1 | 3 | **40.11%** | **39.44%** | **38.92%** | **17.39%** | **44.57%** | **19.40%** | 8.00% | DP leave-one-out selector marginal credit ($\alpha=0.7$); best 1-turn method across all metrics |
+| **`checker_reward`** *(Public-Only RL)* | 1 | 1 | 40.05% | 37.66% | 38.11% | 17.31% | 44.35% | 19.50% | 11.00% | Collapses at step 20 (`-0.98 pt` below `frozen`) due to false positives |
+| **`pkpo_pass8`** *(Coverage RL)* | 1 | 2 | 39.91% | 38.24% | 38.63% | 16.75% | 43.91% | 18.44% | 7.00% | Exact `Pass@8` LOO estimator on $g(y)$ |
+| **`drgrpo_pass1`** *(Default Agent Template)* | 1 | 2 | 39.32% | 38.79% | 38.87% | 17.25% | 44.11% | 19.03% | 5.50% | Standard `Pass@1` Dr. GRPO on $g(y)$ |
+| **`frozen`** *(Untrained Base Model)* | 1 | 1 | 38.64% | 38.64% | 38.64% | 16.19% | 42.92% | 17.44% | 8.00% | Zero-shot `Qwen/Qwen3-4B` (`40,960` context) |
 
-- Detailed per-seed metrics: [`leaderboard/LEADERBOARD.md`](leaderboard/LEADERBOARD.md) & [`leaderboard/baselines.json`](leaderboard/baselines.json)
-- Full 47-checkpoint progression table: [`results/tables/checkpoint_progression.csv`](results/tables/checkpoint_progression.csv)
+- Detailed per-seed metrics & 4K-context analysis comparison: [`leaderboard/LEADERBOARD.md`](leaderboard/LEADERBOARD.md) & [`leaderboard/baselines.json`](leaderboard/baselines.json)
+- Full 106-checkpoint (`dev` + `test`) progression table: [`results/tables/checkpoint_progression.csv`](results/tables/checkpoint_progression.csv)
 - Paired cluster-bootstrap 95% CIs: [`results/tables/paired_bootstrap_ci.csv`](results/tables/paired_bootstrap_ci.csv)
 - Training step curves (260 steps): [`results/tables/training_curves.csv`](results/tables/training_curves.csv)
+- Archived `4,096`-context results (for analysis comparison only): [`results_4k_archive/`](results_4k_archive/)
 
 ---
 
@@ -61,7 +62,7 @@ Inside `benchmark/agent_algorithm.py`, the agent implements two composable hooks
 
 ### Three-Layer Anti-Hacking & Verification System ([`benchmark/verifier.py`](benchmark/verifier.py))
 1. **Layer 1 — Cryptographic File Lock (`benchmark/manifest_locks.json`)**:
-   All 33 framework, configuration, and dataset files (`sspo/*.py`, `configs/benchmark_locked.yaml`, `data/*`) are verified via SHA-256 hashes before training and before evaluation. Modifying any file outside `benchmark/agent_algorithm.py` raises `TAMPER_DETECTED`.
+   All 34 framework, configuration, and dataset files (`sspo/*.py`, `configs/benchmark_locked.yaml`, `data/*`) are verified via SHA-256 hashes before training and before evaluation. Modifying any file outside `benchmark/agent_algorithm.py` raises `TAMPER_DETECTED`.
 2. **Layer 2 — Static AST & Import Sandbox**:
    `benchmark/agent_algorithm.py` is parsed via Python's `ast` module. Filesystem, network, subprocess, and reflection primitives (`os`, `sys`, `open`, `eval`, `exec`, `subprocess`, `getattr`, `__globals__`, etc.) are strictly blocked.
 3. **Layer 3 — Mathematical & Functional Contract**:
@@ -72,10 +73,11 @@ Inside `benchmark/agent_algorithm.py`, the agent implements two composable hooks
    - **CPU Latency Budget**: `< 50 ms` per problem call.
 
 ### Train / Validation / Encrypted Hidden Test Split Isolation
-- **`data/train.jsonl` (500 problems)**: Used during the 30-step RL training loop.
-- **`data/dev.jsonl` (100 problems — Validation Split)**: Open for the agent to run validation evaluations (`eval-dev`), analyze failure modes, and perform validation-based checkpoint selection.
-- **`data/test.jsonl` + `data/test_hidden.enc` (100 problems — Encrypted Hidden Test Split)**:
-  On disk, `data/test.jsonl` has `"hidden": []` and `"reference_solution": null` stripped. The 40 hidden test cases per test problem are compressed and encrypted inside `data/test_hidden.enc` (HMAC-SHA256 authenticated stream cipher) and decrypted strictly **in memory** during `eval-test`. Furthermore, `benchmark/agent_algorithm.py` is **never invoked** during evaluation.
+All splits are strictly **`contest_id`-disjoint** (`0` contest overlap across `train`, `dev`, `test`) and calibrated under `Qwen/Qwen3-4B` (`40,960` context):
+- **`data/train.jsonl` & `data/train_active.jsonl` (`91` active calibrated problems)**: Filtered so `Qwen/Qwen3-4B` neither saturates trivially (`100%`) nor gets stuck at `0%` (`Pass@1 = 36.13%`, `Cov@8 = 76.58%`, `Select@8 = 73.71%`, `Critical Rate = 20.88%`).
+- **`data/dev.jsonl` (`100` problems — Validation Split)**: Open for the agent to run validation evaluations (`eval-dev`), analyze failure modes, and perform validation-based checkpoint selection (`dev_progression.json`).
+- **`data/test.jsonl` + `data/test_hidden.enc` (`100` problems — Encrypted Hidden Test Split)**:
+  On disk, `data/test.jsonl` has `"hidden": []` and `"reference_solution": null` stripped. The hidden test cases per test problem are compressed and encrypted inside `data/test_hidden.enc` (HMAC-SHA256 authenticated stream cipher) and decrypted strictly **in memory** during `eval-test`. Furthermore, `benchmark/agent_algorithm.py` is **never invoked** during evaluation.
 
 ---
 
@@ -126,22 +128,24 @@ Feed [`benchmark/AGENT_PROMPT.md`](benchmark/AGENT_PROMPT.md) directly to your a
 │   ├── verifier.py               # 3-layer SHA-256 lock, AST sandbox & math contract verifier
 │   ├── evaluate_agent.py         # Unified CLI for verify / smoke / train / eval-dev / eval-test
 │   ├── hidden_test_vault.py      # Encrypted test-set vault (in-memory decryption only)
-│   ├── manifest_locks.json       # SHA-256 checksums of all 33 locked files
+│   ├── manifest_locks.json       # SHA-256 checksums of all 34 locked files
 │   ├── AGENT_PROMPT.md           # Ready-to-use prompt for evaluating AI agents
 │   └── reference_algorithms/     # Reference implementations (drgrpo_pass1, pkpo_pass8, sspo, checker_reward)
 ├── leaderboard/
 │   ├── LEADERBOARD.md            # Official baseline leaderboard & per-seed breakdown
 │   └── baselines.json            # Machine-readable baseline results
 ├── configs/
-│   ├── benchmark_locked.yaml     # Locked hyperparameters for official agent evaluation
-│   ├── pilot.yaml                # Pilot experiment configuration
+│   ├── benchmark_locked.yaml     # Locked hyperparameters for official agent evaluation (40,960 context)
+│   ├── pilot.yaml                # Pilot experiment configuration (40,960 context)
 │   └── smoke.yaml                # Fast CPU smoke test configuration
 ├── data/
-│   ├── train.jsonl               # 500 unique-output training problems
-│   ├── dev.jsonl                 # 100 held-out validation problems
+│   ├── train.jsonl               # 91 active calibrated training problems (contest-disjoint)
+│   ├── train_active.jsonl        # Active training problem pool
+│   ├── dev.jsonl                 # 100 held-out validation problems (with inline tests)
 │   ├── test.jsonl                # 100 test prompts & public examples (hidden tests stripped on disk)
 │   └── test_hidden.enc           # Encrypted hidden test cases for the 100 test problems
-├── results/                      # Full experimental artifacts, metrics.jsonl, eval/*.jsonl & tables/*.csv
+├── results/                      # Full 40,960-context experimental artifacts, eval/*.jsonl & tables/*.csv
+├── results_4k_archive/           # Archived 4,096-context experimental results for analysis reference
 ├── sspo/                         # Core rollout, checker, DP, selector, trainer & evaluation library
 └── tests/                        # Unit tests (DP, advantages, pipeline, resume & benchmark guardrails)
 ```

@@ -1,0 +1,54 @@
+{
+  "run_dir": "results/frozen_seed0",
+  "split": "test",
+  "best_by_select_at_8": {
+    "ckpt": "step_0000",
+    "pass_at_1": 0.161875,
+    "pass_at_4": 0.348907,
+    "pass_at_8": 0.429207,
+    "cov_at_8": 0.397505,
+    "select_at_4": 0.304621,
+    "select_at_8": 0.386358,
+    "gap_at_8": 0.011147,
+    "chk_pass_rate": 0.174375,
+    "cluster_impure_rate": 0.08
+  },
+  "best_by_chk_pass_rate": {
+    "ckpt": "step_0000",
+    "pass_at_1": 0.161875,
+    "pass_at_4": 0.348907,
+    "pass_at_8": 0.429207,
+    "cov_at_8": 0.397505,
+    "select_at_4": 0.304621,
+    "select_at_8": 0.386358,
+    "gap_at_8": 0.011147,
+    "chk_pass_rate": 0.174375,
+    "cluster_impure_rate": 0.08
+  },
+  "final_checkpoint": {
+    "ckpt": "step_0000",
+    "pass_at_1": 0.161875,
+    "pass_at_4": 0.348907,
+    "pass_at_8": 0.429207,
+    "cov_at_8": 0.397505,
+    "select_at_4": 0.304621,
+    "select_at_8": 0.386358,
+    "gap_at_8": 0.011147,
+    "chk_pass_rate": 0.174375,
+    "cluster_impure_rate": 0.08
+  },
+  "checkpoints": {
+    "step_0000": {
+      "ckpt": "step_0000",
+      "pass_at_1": 0.161875,
+      "pass_at_4": 0.348907,
+      "pass_at_8": 0.429207,
+      "cov_at_8": 0.397505,
+      "select_at_4": 0.304621,
+      "select_at_8": 0.386358,
+      "gap_at_8": 0.011147,
+      "chk_pass_rate": 0.174375,
+      "cluster_impure_rate": 0.08
+    }
+  }
+}

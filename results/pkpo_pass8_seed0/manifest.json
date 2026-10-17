@@ -2,18 +2,18 @@
   "run_dir": "results/pkpo_pass8_seed0",
   "arm": "pkpo_pass8",
   "seed": 0,
-  "start_time": "2026-10-16T06:09:14Z",
-  "last_resumed_at": "2026-10-16T11:05:34Z",
-  "resumed_count": 3,
+  "start_time": "2026-10-17T01:19:15Z",
+  "last_resumed_at": "2026-10-17T01:19:15Z",
+  "resumed_count": 0,
   "git_commit": "d77735f9f7bad370cdb2285f2d31f566d6c1083a",
   "model_name": "Qwen/Qwen3-4B",
   "model_hash": "92e31154209b70d8",
   "num_gpus": 1,
-  "gpu_mem_gb": 40,
+  "gpu_mem_gb": 80,
   "preset": {
-    "preset_name": "gpu1x40gb_lora",
+    "preset_name": "gpu1x80gb_lora",
     "num_gpus": 1,
-    "gpu_mem_gb": 40,
+    "gpu_mem_gb": 80,
     "model_name": "Qwen/Qwen3-4B",
     "model_params_b": 4.0,
     "use_lora": true,
@@ -21,22 +21,28 @@
     "lora_alpha": 128,
     "tensor_parallel_size": 1,
     "num_rollout_replicas": 1,
-    "rollout_concurrency": 32,
-    "vllm_gpu_memory_utilization": 0.75,
+    "rollout_concurrency": 64,
+    "vllm_gpu_memory_utilization": 0.8,
     "fsdp_sharding_strategy": "NO_SHARD",
     "gradient_checkpointing": true,
     "batch_problems": 16,
     "n_rollouts": 16,
     "total_sequences_per_step": 256,
-    "micro_batch_size_per_gpu": 2,
-    "gradient_accumulation_steps": 128,
-    "estimated_peak_mem_gb": 26.5,
-    "est_step_minutes": 41.3,
-    "est_total_hours_150steps": 20.6
+    "micro_batch_size_per_gpu": 4,
+    "gradient_accumulation_steps": 64,
+    "estimated_peak_mem_gb": 42.5,
+    "est_step_minutes": 25.6,
+    "est_total_hours_150steps": 12.8,
+    "model_override": true
   },
   "config": {
     "experiment_name": "sspo_pilot",
     "mode": "pilot",
+    "model": {
+      "base_model_id": "Qwen/Qwen3-4B",
+      "lora_rank": 64,
+      "lora_alpha": 128
+    },
     "data": {
       "source": "code_contests",
       "train_file": "data/train.jsonl",
@@ -45,7 +51,7 @@
       "max_train_problems": 3000,
       "dev_size": 100,
       "max_eval_problems": 100,
-      "diag_pool_size": 100
+      "diag_pool_size": 200
     },
     "checker": {
       "version": "v1",
@@ -62,8 +68,9 @@
       "turns": 1,
       "temperature": 1.0,
       "top_p": 1.0,
-      "max_tokens": 1536,
-      "max_context_length": 4096
+      "max_tokens": 8192,
+      "max_train_seq_len": 8192,
+      "max_context_length": 40960
     },
     "train": {
       "arm": "sspo",
@@ -104,9 +111,9 @@
       "bootstrap_samples": 2000
     },
     "hardware_preset": {
-      "preset_name": "gpu1x40gb_lora",
+      "preset_name": "gpu1x80gb_lora",
       "num_gpus": 1,
-      "gpu_mem_gb": 40,
+      "gpu_mem_gb": 80,
       "model_name": "Qwen/Qwen3-4B",
       "model_params_b": 4.0,
       "use_lora": true,
@@ -114,18 +121,19 @@
       "lora_alpha": 128,
       "tensor_parallel_size": 1,
       "num_rollout_replicas": 1,
-      "rollout_concurrency": 32,
-      "vllm_gpu_memory_utilization": 0.75,
+      "rollout_concurrency": 64,
+      "vllm_gpu_memory_utilization": 0.8,
       "fsdp_sharding_strategy": "NO_SHARD",
       "gradient_checkpointing": true,
       "batch_problems": 16,
       "n_rollouts": 16,
       "total_sequences_per_step": 256,
-      "micro_batch_size_per_gpu": 2,
-      "gradient_accumulation_steps": 128,
-      "estimated_peak_mem_gb": 26.5,
-      "est_step_minutes": 41.3,
-      "est_total_hours_150steps": 20.6
+      "micro_batch_size_per_gpu": 4,
+      "gradient_accumulation_steps": 64,
+      "estimated_peak_mem_gb": 42.5,
+      "est_step_minutes": 25.6,
+      "est_total_hours_150steps": 12.8,
+      "model_override": true
     }
   }
 }

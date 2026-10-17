@@ -1,5 +1,5 @@
 arm_a,arm_b,metric,n_problems,n_clusters,mean_diff,ci_low,ci_high,se,p_value,p_value_holm,win
-sspo,drgrpo_pass1,select@8,100,56,-0.002303,-0.021979,0.019799,0.010636,0.794,1.0,False
-sspo,pkpo_pass8,select@8,100,56,-0.002482,-0.025477,0.020419,0.01129,0.84,1.0,False
-sspo,frozen,select@8,100,56,0.013618,-0.00558,0.035898,0.010525,0.181,0.724,False
-sspo,checker_reward,select@8,100,56,0.000868,-0.02167,0.022296,0.011145,0.893,1.0,False
+sspo,drgrpo_pass1,select@8,100,60,0.007894,-0.022208,0.035952,0.014852,0.581,1.0,False
+sspo,pkpo_pass8,select@8,100,60,0.002047,-0.027331,0.032833,0.01547,0.923,1.0,False
+sspo,frozen,select@8,100,60,0.014766,-0.011967,0.039791,0.01347,0.297,1.0,False
+sspo,checker_reward,select@8,100,60,0.000647,-0.028298,0.028009,0.014499,0.936,1.0,False

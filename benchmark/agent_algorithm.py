@@ -122,7 +122,7 @@ class PolicyLossBatch:
     advantages: torch.Tensor  # (B,) sequence-level advantage A_i from compute_group_advantages
     loss_scales: torch.Tensor  # (B,) problem-level scale factor from compute_group_advantages
     num_problems_in_batch: int
-    l_max: int = 1536
+    l_max: int = 8192
     clip_eps: float = 0.2
     kl_coef: float = 0.001
     step: int = 1

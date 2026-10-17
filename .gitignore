@@ -14,5 +14,6 @@ results/*/rollout_cache/
 results/*/eval/.*partial.json
 results/*/eval/.*.done
 results/agent_smoke/
+data/raw_pool_960/
 *.tmp.*
 .DS_Store

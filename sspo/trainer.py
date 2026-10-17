@@ -89,11 +89,24 @@ def compute_token_logprobs(model: nn.Module, input_ids: torch.Tensor) -> torch.T
         shift_logits = logits[:, :-1, :]
         shift_labels = input_ids[:, 1:]
         v_size = shift_logits.size(-1)
-        token_log_probs = -F.cross_entropy(
-            shift_logits.reshape(-1, v_size),
-            shift_labels.reshape(-1),
-            reduction="none",
-        ).view(shift_labels.shape)
+        seq_m1 = shift_labels.size(1)
+        if seq_m1 <= 1024:
+            token_log_probs = -F.cross_entropy(
+                shift_logits.reshape(-1, v_size),
+                shift_labels.reshape(-1),
+                reduction="none",
+            ).view(shift_labels.shape)
+        else:
+            chunks = []
+            for t_s in range(0, seq_m1, 1024):
+                t_e = min(seq_m1, t_s + 1024)
+                c_lp = -F.cross_entropy(
+                    shift_logits[:, t_s:t_e, :].reshape(-1, v_size),
+                    shift_labels[:, t_s:t_e].reshape(-1),
+                    reduction="none",
+                ).view(shift_labels.size(0), t_e - t_s)
+                chunks.append(c_lp)
+            token_log_probs = torch.cat(chunks, dim=1)
         return token_log_probs
 
 
@@ -201,14 +214,18 @@ class RolloutEngine:
             from vllm import LLM
 
             preset = cfg.get("hardware_preset", {})
-            raw_model_name = os.environ.get("SSPO_MODEL_OVERRIDE") or preset.get("model_name", "Qwen/Qwen3-8B")
+            raw_model_name = (
+                os.environ.get("SSPO_MODEL_OVERRIDE")
+                or cfg.get("model", {}).get("base_model_id")
+                or preset.get("model_name", "Qwen/Qwen3-4B")
+            )
             model_path = resolve_local_model_path(raw_model_name)
             # If >=2 GPUs and PyTorch training will run on cuda:1, run vLLM on cuda:0 with TP=1
             tp = int(os.environ.get("SSPO_VLLM_TP", preset.get("tensor_parallel_size", 1)))
             if torch.cuda.is_available() and torch.cuda.device_count() >= 2 and os.environ.get("SSPO_SPLIT_DEVICES", "1") == "1":
                 tp = 1
-            gpu_util = float(os.environ.get("SSPO_VLLM_MEM", preset.get("vllm_gpu_memory_utilization", 0.75)))
-            max_len = int(cfg.get("rollout", {}).get("max_context_length", 6144))
+            gpu_util = float(os.environ.get("SSPO_VLLM_MEM", preset.get("vllm_gpu_memory_utilization", 0.78)))
+            max_len = int(cfg.get("rollout", {}).get("max_context_length", 40960))
             vllm_dtype = "bfloat16"
             max_num_seqs = 64
             enforce_eager = False
@@ -218,14 +235,7 @@ class RolloutEngine:
                     vllm_dtype = "float16"
                 total_gb = torch.cuda.get_device_properties(0).total_memory / (1024**3)
                 if torch.cuda.device_count() == 1 and os.environ.get("SSPO_VLLM_ONLY", "0") != "1":
-                    gpu_util = min(gpu_util, 0.47 if total_gb < 30.0 else 0.52)
-                    if total_gb < 30.0:
-                        max_len = min(max_len, 2560)
-                        max_num_seqs = 32
-                        enforce_eager = False
-                elif total_gb < 30.0:
-                    gpu_util = min(gpu_util, 0.72)
-                    max_len = min(max_len, 4096)
+                    gpu_util = min(gpu_util, 0.56 if total_gb >= 70.0 else (0.52 if total_gb >= 38.0 else 0.47))
             max_lora_rank = max(64, int(preset.get("lora_rank", 64) or 64))
             self.max_len = max_len
             self.vllm_llm = LLM(
@@ -341,7 +351,7 @@ class RolloutEngine:
         rollout_cfg = self.cfg.get("rollout", {})
         temp = float(rollout_cfg.get("temperature", 1.0))
         top_p = float(rollout_cfg.get("top_p", 1.0))
-        max_tokens = int(rollout_cfg.get("max_tokens", 2048))
+        max_tokens = int(rollout_cfg.get("max_tokens", 8192))
 
         lora_req = None
         if lora_path and os.path.isdir(lora_path) and (Path(lora_path) / "adapter_config.json").exists():
@@ -409,7 +419,7 @@ class RolloutEngine:
                 trajs.append([turn0])
                 if turns >= 2 and not pub_all0:
                     fb_str = format_public_feedback(details0)
-                    t0_short = text0 if len(text0) <= 3200 else (text0[:1600] + "\n...\n" + text0[-1600:])
+                    t0_short = text0 if len(text0) <= 32000 else (text0[:16000] + "\n...\n" + text0[-16000:])
                     msgs2 = [
                         {"role": "user", "content": user_prompts[b_idx]},
                         {"role": "assistant", "content": t0_short},
@@ -426,7 +436,7 @@ class RolloutEngine:
                     n=1,
                     temperature=temp,
                     top_p=top_p,
-                    max_tokens=min(max_tokens, 1024),
+                    max_tokens=max_tokens,
                     seed=r[4],
                 )
                 for r in turn2_reqs
@@ -455,7 +465,7 @@ class RolloutEngine:
 
 def pack_trajectory_tokens(
     turns: List[Dict[str, Any]],
-    max_seq_len: int = 256,
+    max_seq_len: int = 8192,
 ) -> Tuple[List[int], List[float]]:
     """Concatenate prompt and response token IDs across turns and build the binary `action_mask` (1 on response tokens).
 
@@ -463,9 +473,19 @@ def pack_trajectory_tokens(
     """
     input_ids: List[int] = []
     is_action: List[float] = []
-    for t in turns:
+    first_prompt_len = len(turns[0].get("prompt_ids", [1, 2])) if turns else 0
+    for t_idx, t in enumerate(turns):
         p_ids = [int(x) for x in t.get("prompt_ids", [1, 2])]
         r_ids = [int(x) for x in t.get("response_ids", [3, 4])]
+        if t_idx > 0 and first_prompt_len > 0 and len(p_ids) >= first_prompt_len and len(input_ids) >= first_prompt_len:
+            lcp = 0
+            limit = min(len(input_ids), len(p_ids))
+            while lcp < limit and input_ids[lcp] == p_ids[lcp]:
+                lcp += 1
+            if lcp >= first_prompt_len:
+                input_ids = input_ids[:lcp]
+                is_action = is_action[:lcp]
+                p_ids = p_ids[lcp:]
         input_ids.extend(p_ids)
         is_action.extend([0.0] * len(p_ids))
         input_ids.extend(r_ids)
@@ -530,6 +550,20 @@ def save_checkpoint_atomic(
     }
     atomic_write_json(ckpt_dir / "trainer_state.json", trainer_state)
     atomic_write_text(ckpt_root / "latest", ckpt_name + "\n")
+
+    # Prune bulky optimizer.pt and duplicate model.pt from older step_* checkpoints when lora_adapter/ is saved
+    if hasattr(policy_model, "peft_config"):
+        for old_dir in ckpt_root.iterdir():
+            if old_dir.is_dir() and old_dir.name.startswith("step_") and old_dir.name != ckpt_name:
+                if (old_dir / "lora_adapter" / "adapter_config.json").exists():
+                    for bulky in ("optimizer.pt", "model.pt"):
+                        bp = old_dir / bulky
+                        if bp.exists():
+                            try:
+                                bp.unlink()
+                            except OSError:
+                                pass
+
     return ckpt_dir
 
 
@@ -550,9 +584,20 @@ def load_latest_checkpoint(
     if not state_file.exists():
         return None
 
-    saved_sd = torch.load(ckpt_dir / "model.pt", map_location="cpu", weights_only=True)
-    strict_load = not hasattr(policy_model, "peft_config")
-    policy_model.load_state_dict(saved_sd, strict=strict_load)
+    if (ckpt_dir / "model.pt").exists():
+        saved_sd = torch.load(ckpt_dir / "model.pt", map_location="cpu", weights_only=True)
+        strict_load = not hasattr(policy_model, "peft_config")
+        policy_model.load_state_dict(saved_sd, strict=strict_load)
+    elif hasattr(policy_model, "peft_config") and (ckpt_dir / "lora_adapter" / "adapter_model.safetensors").exists():
+        from peft import set_peft_model_state_dict
+        from safetensors.torch import load_file
+
+        p0 = next(policy_model.parameters())
+        sd_lora = {
+            k: v.to(device=p0.device, dtype=p0.dtype)
+            for k, v in load_file(str(ckpt_dir / "lora_adapter" / "adapter_model.safetensors")).items()
+        }
+        set_peft_model_state_dict(policy_model, sd_lora)
     try:
         opt_sd = torch.load(ckpt_dir / "optimizer.pt", map_location="cpu", weights_only=True)
         optimizer.load_state_dict(opt_sd)
@@ -610,6 +655,11 @@ def run_training(
             "seed": seed,
         }
 
+    raw_model_name = (
+        os.environ.get("SSPO_MODEL_OVERRIDE")
+        or cfg.get("model", {}).get("base_model_id")
+        or preset["model_name"]
+    )
     # Write manifest.json with relative paths
     write_manifest(
         run_dir=exp_run_dir,
@@ -619,7 +669,7 @@ def run_training(
         num_gpus=preset["num_gpus"],
         gpu_mem_gb=preset["gpu_mem_gb"],
         preset=preset,
-        model_name=preset["model_name"],
+        model_name=raw_model_name,
     )
 
     # Handle `frozen` arm (no training steps; writes step_0000 pointer and done marker)
@@ -661,7 +711,6 @@ def run_training(
         else:
             device = torch.device("cuda:0")
 
-        raw_model_name = os.environ.get("SSPO_MODEL_OVERRIDE") or preset["model_name"]
         model_path = resolve_local_model_path(raw_model_name)
         cap_major = torch.cuda.get_device_capability(device)[0]
         pt_dtype = torch.float16 if cap_major < 8 else torch.bfloat16
@@ -692,12 +741,8 @@ def run_training(
         foreach=False,
     )
 
-    # Load training problems (prefer train_active.jsonl produced by diag if present)
-    active_train_path = (
-        REPO_ROOT / "data" / "train_active_300.jsonl"
-        if (REPO_ROOT / "data" / "train_active_300.jsonl").exists()
-        else (REPO_ROOT / "data" / "train_active.jsonl")
-    )
+    # Load training problems (prefer calibrated train.jsonl or train_active.jsonl)
+    active_train_path = REPO_ROOT / "data" / "train_active.jsonl"
     default_train_path = REPO_ROOT / data_cfg.get("train_file", "data/train.jsonl")
     sample_path = REPO_ROOT / "data" / "sample_problems.jsonl"
     if active_train_path.exists() and len(read_jsonl(active_train_path)) > 0:
@@ -779,8 +824,10 @@ def run_training(
     kl_coef = float(train_cfg.get("kl_coef", 0.001))
     max_grad_norm = float(train_cfg.get("max_grad_norm", 1.0))
     save_every = int(train_cfg.get("save_every", 10))
-    l_max = int(rollout_cfg.get("max_tokens", 2048)) if not use_mock else 64
-    max_train_seq_len = 128 if use_mock else int(os.environ.get("SSPO_MAX_TRAIN_SEQ_LEN", "1536"))
+    l_max = int(rollout_cfg.get("max_tokens", 8192)) if not use_mock else 64
+    max_train_seq_len = 128 if use_mock else int(
+        os.environ.get("SSPO_MAX_TRAIN_SEQ_LEN", str(rollout_cfg.get("max_train_seq_len", 8192)))
+    )
     micro_bs = max(1, int(preset.get("micro_batch_size", 2))) if not use_mock else 64
     if not use_mock and torch.cuda.is_available() and torch.cuda.device_count() == 1:
         total_gb = torch.cuda.get_device_properties(0).total_memory / (1024**3)
@@ -942,7 +989,16 @@ def run_training(
             n_total_seqs = len(all_seq_ids)
             old_lp_chunks: List[torch.Tensor] = []
             ref_lp_chunks: List[torch.Tensor] = []
-            mb_ranges = [(i, min(n_total_seqs, i + micro_bs)) for i in range(0, n_total_seqs, micro_bs)]
+            mb_ranges: List[Tuple[int, int]] = []
+            i_seq = 0
+            while i_seq < n_total_seqs:
+                step_bs = micro_bs
+                if not use_mock and step_bs > 1:
+                    cand_max = max(len(s) for s in all_seq_ids[i_seq : min(n_total_seqs, i_seq + step_bs)])
+                    if cand_max > 2048:
+                        step_bs = 1
+                mb_ranges.append((i_seq, min(n_total_seqs, i_seq + step_bs)))
+                i_seq += step_bs
 
             policy_model.eval()
             with torch.no_grad():
@@ -983,9 +1039,11 @@ def run_training(
                 sub_scale = torch.tensor(all_seq_scales[s_i:e_i], dtype=torch.float32, device=device)
 
                 curr_lp = compute_token_logprobs(policy_model, pad_ids)
-                if arm == "agent":
-                    from benchmark.agent_algorithm import PolicyLossBatch, compute_policy_loss
+                if arm in ("agent", "sspo", "drgrpo_pass1", "pkpo_pass8", "checker_reward"):
+                    from benchmark.agent_algorithm import PolicyLossBatch
+                    from sspo.advantage import get_policy_loss_fn_for_arm
 
+                    loss_fn = get_policy_loss_fn_for_arm(arm)
                     pl_batch = PolicyLossBatch(
                         policy_logprobs=curr_lp,
                         old_logprobs=old_lp_chunks[chunk_idx].to(device),
@@ -1000,7 +1058,7 @@ def run_training(
                         step=step,
                         total_steps=total_steps,
                     )
-                    res_loss = compute_policy_loss(pl_batch)
+                    res_loss = loss_fn(pl_batch)
                     if isinstance(res_loss, tuple):
                         mb_loss, mb_stats = res_loss
                     else:
@@ -1093,6 +1151,13 @@ def run_training(
         }
         append_metric_step_atomic(metrics_path, step=step, row=metric_row)
         steps_executed += 1
+
+        # Remove completed step's rollout cache file to save disk space once step metrics are committed
+        if step_rollout_file.exists() and not use_mock:
+            try:
+                step_rollout_file.unlink()
+            except OSError:
+                pass
 
         should_save = (
             (step % save_every == 0)

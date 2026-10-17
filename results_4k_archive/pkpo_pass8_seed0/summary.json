@@ -1,0 +1,50 @@
+{
+  "run_name": "pkpo_pass8_seed0",
+  "n_problems": 100,
+  "pass_at_k": {
+    "1": 0.124375,
+    "2": 0.167417,
+    "4": 0.215192,
+    "8": 0.261715,
+    "16": 0.31
+  },
+  "cov_at_k": {
+    "1": 0.09,
+    "2": 0.11675,
+    "4": 0.148022,
+    "8": 0.181694,
+    "16": 0.22
+  },
+  "select_at_k": {
+    "1": 0.09025,
+    "2": 0.1181,
+    "4": 0.14845,
+    "8": 0.18155,
+    "16": 0.22
+  },
+  "select_at_k_exact": {
+    "1": 0.09,
+    "2": 0.11675,
+    "4": 0.148022,
+    "8": 0.181294,
+    "16": 0.22
+  },
+  "gap_at_k": {
+    "1": -0.00025,
+    "2": -0.00135,
+    "4": -0.000428,
+    "8": 0.000144,
+    "16": 0.0
+  },
+  "selector_gain_k_vs_pass1": 0.057175,
+  "critical_problem_rate": 0.01,
+  "cluster_impure_rate": 0.01,
+  "eps_hat_mean": 0.034375,
+  "chk_pass_rate_mean": 0.0925,
+  "arm": "pkpo_pass8",
+  "seed": 0,
+  "eval_file": "results/pkpo_pass8_seed0/eval/test_step_0030.jsonl",
+  "ckpt": "step_0030",
+  "latest_ckpt": "step_0030",
+  "latest_select_at_8": 0.18155
+}

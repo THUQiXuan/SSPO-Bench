@@ -97,17 +97,20 @@ def Seal_test_split(
     v_path = Path(vault_path)
     rows = read_jsonl(t_path)
 
+    from sspo.ec_common import hidden_tests
+
     hidden_map: Dict[str, List[List[str]]] = {}
     public_rows: List[Dict[str, Any]] = []
     for r in rows:
         pid = str(r["pid"])
-        hid = r.get("hidden") or []
+        hid = r.get("hidden") or hidden_tests(r)[:16] or []
         if hid:
             hidden_map[pid] = [[str(i), str(o)] for i, o in hid]
         stripped = dict(r)
         stripped["hidden"] = []
         stripped["reference_solution"] = None
         stripped.pop("reference_solutions", None)
+        stripped.pop("hidden_file", None)
         public_rows.append(stripped)
 
     if hidden_map:

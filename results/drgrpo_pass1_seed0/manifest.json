@@ -2,9 +2,9 @@
   "run_dir": "results/drgrpo_pass1_seed0",
   "arm": "drgrpo_pass1",
   "seed": 0,
-  "start_time": "2026-10-16T06:09:14Z",
-  "last_resumed_at": "2026-10-16T12:01:37Z",
-  "resumed_count": 5,
+  "start_time": "2026-10-17T01:18:53Z",
+  "last_resumed_at": "2026-10-17T01:18:53Z",
+  "resumed_count": 0,
   "git_commit": "d77735f9f7bad370cdb2285f2d31f566d6c1083a",
   "model_name": "Qwen/Qwen3-4B",
   "model_hash": "92e31154209b70d8",
@@ -32,11 +32,17 @@
     "gradient_accumulation_steps": 128,
     "estimated_peak_mem_gb": 26.5,
     "est_step_minutes": 41.3,
-    "est_total_hours_150steps": 20.6
+    "est_total_hours_150steps": 20.6,
+    "model_override": true
   },
   "config": {
     "experiment_name": "sspo_pilot",
     "mode": "pilot",
+    "model": {
+      "base_model_id": "Qwen/Qwen3-4B",
+      "lora_rank": 64,
+      "lora_alpha": 128
+    },
     "data": {
       "source": "code_contests",
       "train_file": "data/train.jsonl",
@@ -45,7 +51,7 @@
       "max_train_problems": 3000,
       "dev_size": 100,
       "max_eval_problems": 100,
-      "diag_pool_size": 100
+      "diag_pool_size": 200
     },
     "checker": {
       "version": "v1",
@@ -62,8 +68,9 @@
       "turns": 1,
       "temperature": 1.0,
       "top_p": 1.0,
-      "max_tokens": 1536,
-      "max_context_length": 4096
+      "max_tokens": 8192,
+      "max_train_seq_len": 8192,
+      "max_context_length": 40960
     },
     "train": {
       "arm": "sspo",
@@ -125,7 +132,8 @@
       "gradient_accumulation_steps": 128,
       "estimated_peak_mem_gb": 26.5,
       "est_step_minutes": 41.3,
-      "est_total_hours_150steps": 20.6
+      "est_total_hours_150steps": 20.6,
+      "model_override": true
     }
   }
 }

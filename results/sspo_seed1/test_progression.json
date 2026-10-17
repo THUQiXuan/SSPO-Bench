@@ -1,0 +1,114 @@
+{
+  "run_dir": "results/sspo_seed1",
+  "split": "test",
+  "best_by_select_at_8": {
+    "ckpt": "step_0030",
+    "pass_at_1": 0.173125,
+    "pass_at_4": 0.355808,
+    "pass_at_8": 0.442833,
+    "cov_at_8": 0.414935,
+    "select_at_4": 0.314296,
+    "select_at_8": 0.397866,
+    "gap_at_8": 0.01707,
+    "chk_pass_rate": 0.191875,
+    "cluster_impure_rate": 0.08
+  },
+  "best_by_chk_pass_rate": {
+    "ckpt": "step_0030",
+    "pass_at_1": 0.173125,
+    "pass_at_4": 0.355808,
+    "pass_at_8": 0.442833,
+    "cov_at_8": 0.414935,
+    "select_at_4": 0.314296,
+    "select_at_8": 0.397866,
+    "gap_at_8": 0.01707,
+    "chk_pass_rate": 0.191875,
+    "cluster_impure_rate": 0.08
+  },
+  "final_checkpoint": {
+    "ckpt": "step_0030",
+    "pass_at_1": 0.173125,
+    "pass_at_4": 0.355808,
+    "pass_at_8": 0.442833,
+    "cov_at_8": 0.414935,
+    "select_at_4": 0.314296,
+    "select_at_8": 0.397866,
+    "gap_at_8": 0.01707,
+    "chk_pass_rate": 0.191875,
+    "cluster_impure_rate": 0.08
+  },
+  "checkpoints": {
+    "step_0005": {
+      "ckpt": "step_0005",
+      "pass_at_1": 0.1725,
+      "pass_at_4": 0.356445,
+      "pass_at_8": 0.440235,
+      "cov_at_8": 0.400971,
+      "select_at_4": 0.311475,
+      "select_at_8": 0.387778,
+      "gap_at_8": 0.013193,
+      "chk_pass_rate": 0.185625,
+      "cluster_impure_rate": 0.07
+    },
+    "step_0010": {
+      "ckpt": "step_0010",
+      "pass_at_1": 0.16125,
+      "pass_at_4": 0.3355,
+      "pass_at_8": 0.403271,
+      "cov_at_8": 0.382817,
+      "select_at_4": 0.30355,
+      "select_at_8": 0.37244,
+      "gap_at_8": 0.010377,
+      "chk_pass_rate": 0.1775,
+      "cluster_impure_rate": 0.04
+    },
+    "step_0015": {
+      "ckpt": "step_0015",
+      "pass_at_1": 0.16875,
+      "pass_at_4": 0.35189,
+      "pass_at_8": 0.438197,
+      "cov_at_8": 0.413541,
+      "select_at_4": 0.311125,
+      "select_at_8": 0.396382,
+      "gap_at_8": 0.017159,
+      "chk_pass_rate": 0.18875,
+      "cluster_impure_rate": 0.07
+    },
+    "step_0020": {
+      "ckpt": "step_0020",
+      "pass_at_1": 0.1725,
+      "pass_at_4": 0.357945,
+      "pass_at_8": 0.437384,
+      "cov_at_8": 0.414486,
+      "select_at_4": 0.319833,
+      "select_at_8": 0.397429,
+      "gap_at_8": 0.017058,
+      "chk_pass_rate": 0.190625,
+      "cluster_impure_rate": 0.06
+    },
+    "step_0025": {
+      "ckpt": "step_0025",
+      "pass_at_1": 0.160625,
+      "pass_at_4": 0.336049,
+      "pass_at_8": 0.419274,
+      "cov_at_8": 0.386761,
+      "select_at_4": 0.294592,
+      "select_at_8": 0.374133,
+      "gap_at_8": 0.012629,
+      "chk_pass_rate": 0.183125,
+      "cluster_impure_rate": 0.07
+    },
+    "step_0030": {
+      "ckpt": "step_0030",
+      "pass_at_1": 0.173125,
+      "pass_at_4": 0.355808,
+      "pass_at_8": 0.442833,
+      "cov_at_8": 0.414935,
+      "select_at_4": 0.314296,
+      "select_at_8": 0.397866,
+      "gap_at_8": 0.01707,
+      "chk_pass_rate": 0.191875,
+      "cluster_impure_rate": 0.08
+    }
+  }
+}

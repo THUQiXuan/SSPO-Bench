@@ -36,6 +36,7 @@ LOCKED_GLOBS = [
     "configs/pilot.yaml",
     "configs/smoke.yaml",
     "data/train.jsonl",
+    "data/train_active.jsonl",
     "data/dev.jsonl",
     "data/test.jsonl",
     "data/test_hidden.enc",

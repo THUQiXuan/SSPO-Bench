@@ -1,0 +1,41 @@
+{
+  "status": "calibrated_40k",
+  "train_count": 91,
+  "train_strictly_active_count": 80,
+  "dev_count": 100,
+  "test_count": 100,
+  "diag_gate1": {
+    "stage": "diag",
+    "config": "configs/pilot.yaml",
+    "n_problems": 91,
+    "n_rollouts": 16,
+    "k_deploy": 8,
+    "pass_at_1": 0.361264,
+    "cov_at_8": 0.765791,
+    "select_at_8": 0.737098,
+    "selector_gain": 0.375834,
+    "selection_gap_at_8": 0.028693,
+    "critical_problem_rate": 0.208791,
+    "cluster_impure_rate": 0.131868,
+    "eps_hat": 0.031593,
+    "chk_pass_rate": 0.411401,
+    "dp_vs_bruteforce_max_diff": 8.326672684688674e-15,
+    "active_train_pool_count": 91,
+    "active_train_file": "data/train_active.jsonl",
+    "gate1_passed": true
+  },
+  "frozen_dev": {
+    "pass_at_1": 0.175625,
+    "pass_at_8": 0.400862,
+    "cov_at_8": 0.400862,
+    "select_at_8": 0.375327,
+    "gap_at_8": 0.025535
+  },
+  "frozen_test": {
+    "pass_at_1": 0.164375,
+    "pass_at_8": 0.400189,
+    "cov_at_8": 0.383343,
+    "select_at_8": 0.370988,
+    "gap_at_8": 0.012354
+  }
+}

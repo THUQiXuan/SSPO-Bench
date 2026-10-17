@@ -1,0 +1,50 @@
+{
+  "run_name": "frozen_seed0",
+  "n_problems": 100,
+  "pass_at_k": {
+    "1": 0.11125,
+    "2": 0.1475,
+    "4": 0.188511,
+    "8": 0.229984,
+    "16": 0.27
+  },
+  "cov_at_k": {
+    "1": 0.085,
+    "2": 0.108833,
+    "4": 0.136022,
+    "8": 0.167163,
+    "16": 0.2
+  },
+  "select_at_k": {
+    "1": 0.0844,
+    "2": 0.11105,
+    "4": 0.13675,
+    "8": 0.16845,
+    "16": 0.2
+  },
+  "select_at_k_exact": {
+    "1": 0.085,
+    "2": 0.108833,
+    "4": 0.136022,
+    "8": 0.167163,
+    "16": 0.2
+  },
+  "gap_at_k": {
+    "1": 0.0006,
+    "2": -0.002217,
+    "4": -0.000728,
+    "8": -0.001287,
+    "16": 0.0
+  },
+  "selector_gain_k_vs_pass1": 0.0572,
+  "critical_problem_rate": 0.0,
+  "cluster_impure_rate": 0.0,
+  "eps_hat_mean": 0.02625,
+  "chk_pass_rate_mean": 0.0875,
+  "arm": "frozen",
+  "seed": 0,
+  "eval_file": "results/frozen_seed0/eval/test_step_0000.jsonl",
+  "ckpt": "step_0000",
+  "latest_ckpt": "step_0000",
+  "latest_select_at_8": 0.16845
+}

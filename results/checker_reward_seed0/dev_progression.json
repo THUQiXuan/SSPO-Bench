@@ -1,0 +1,90 @@
+{
+  "run_dir": "results/checker_reward_seed0",
+  "split": "dev",
+  "best_by_select_at_8": {
+    "ckpt": "step_0010",
+    "pass_at_1": 0.17125,
+    "pass_at_4": 0.298401,
+    "pass_at_8": 0.359197,
+    "cov_at_8": 0.340329,
+    "select_at_4": 0.27215,
+    "select_at_8": 0.323386,
+    "gap_at_8": 0.016943,
+    "chk_pass_rate": 0.19875,
+    "cluster_impure_rate": 0.05
+  },
+  "best_by_chk_pass_rate": {
+    "ckpt": "step_0020",
+    "pass_at_1": 0.17625,
+    "pass_at_4": 0.296209,
+    "pass_at_8": 0.357137,
+    "cov_at_8": 0.325127,
+    "select_at_4": 0.262487,
+    "select_at_8": 0.312979,
+    "gap_at_8": 0.012148,
+    "chk_pass_rate": 0.199375,
+    "cluster_impure_rate": 0.03
+  },
+  "final_checkpoint": {
+    "ckpt": "step_0020",
+    "pass_at_1": 0.17625,
+    "pass_at_4": 0.296209,
+    "pass_at_8": 0.357137,
+    "cov_at_8": 0.325127,
+    "select_at_4": 0.262487,
+    "select_at_8": 0.312979,
+    "gap_at_8": 0.012148,
+    "chk_pass_rate": 0.199375,
+    "cluster_impure_rate": 0.03
+  },
+  "checkpoints": {
+    "step_0005": {
+      "ckpt": "step_0005",
+      "pass_at_1": 0.170625,
+      "pass_at_4": 0.295473,
+      "pass_at_8": 0.363034,
+      "cov_at_8": 0.331368,
+      "select_at_4": 0.263671,
+      "select_at_8": 0.314349,
+      "gap_at_8": 0.017018,
+      "chk_pass_rate": 0.19,
+      "cluster_impure_rate": 0.04
+    },
+    "step_0010": {
+      "ckpt": "step_0010",
+      "pass_at_1": 0.17125,
+      "pass_at_4": 0.298401,
+      "pass_at_8": 0.359197,
+      "cov_at_8": 0.340329,
+      "select_at_4": 0.27215,
+      "select_at_8": 0.323386,
+      "gap_at_8": 0.016943,
+      "chk_pass_rate": 0.19875,
+      "cluster_impure_rate": 0.05
+    },
+    "step_0015": {
+      "ckpt": "step_0015",
+      "pass_at_1": 0.170625,
+      "pass_at_4": 0.302066,
+      "pass_at_8": 0.376294,
+      "cov_at_8": 0.337352,
+      "select_at_4": 0.263008,
+      "select_at_8": 0.320717,
+      "gap_at_8": 0.016635,
+      "chk_pass_rate": 0.195,
+      "cluster_impure_rate": 0.04
+    },
+    "step_0020": {
+      "ckpt": "step_0020",
+      "pass_at_1": 0.17625,
+      "pass_at_4": 0.296209,
+      "pass_at_8": 0.357137,
+      "cov_at_8": 0.325127,
+      "select_at_4": 0.262487,
+      "select_at_8": 0.312979,
+      "gap_at_8": 0.012148,
+      "chk_pass_rate": 0.199375,
+      "cluster_impure_rate": 0.03
+    }
+  }
+}
