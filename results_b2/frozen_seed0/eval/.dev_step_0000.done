@@ -1,0 +1,7 @@
+{
+  "status": "done",
+  "completed_at": "2026-10-17T12:32:49Z",
+  "ckpt": "step_0000",
+  "split": "dev",
+  "n_problems": 64
+}

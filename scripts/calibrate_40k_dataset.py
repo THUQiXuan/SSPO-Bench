@@ -442,26 +442,10 @@ def finalize_splits(config_path: str) -> Dict[str, Any]:
     atomic_write_jsonl(frozen_dir / "metrics.jsonl", [])
     write_done_marker(frozen_dir, {"arm": "frozen", "steps": 0})
 
-    for split_name, split_probs in [("dev", calibrated_dev), ("test", calibrated_test)]:
-        s_rows = []
-        for p in split_probs:
-            er = dict(eval_by_pid[p["pid"]])
-            er.pop("_orig_split", None)
-            er.pop("difficulty", None)
-            s_rows.append(er)
-        eval_jsonl = frozen_dir / "eval" / f"{split_name}_step_0000.jsonl"
-        eval_done = frozen_dir / "eval" / f".{split_name}_step_0000.done"
-        atomic_write_jsonl(eval_jsonl, s_rows)
-        s_sum = summarize_eval_rows(s_rows, run_name="frozen_seed0")
-        s_sum["arm"] = "frozen"
-        s_sum["ckpt"] = "step_0000"
-        s_sum["eval_split"] = split_name
-        s_sum["eval_file"] = to_rel_path(eval_jsonl)
-        if split_name == "test":
-            atomic_write_json(frozen_dir / "summary.json", s_sum)
-        write_done_marker(eval_done, {"ckpt": "step_0000", "split": split_name, "n_problems": len(s_rows)})
-
-    generate_tables_and_report(REPO_ROOT / "results")
+    # Note: Do not copy calibration-conditioned rollouts into `frozen_seed0/eval/`.
+    # Leaving `frozen_seed0/eval/` empty ensures `scripts/eval_worker_pool.py` evaluates
+    # `step_0000` using the exact same paired evaluation rollout seeds (`subset_seed + c_start + i`)
+    # as all trained checkpoints (`step_0005..0030`), avoiding Winner's Curse selection bias.
 
     dev_sum = summarize_eval_rows([eval_by_pid[p["pid"]] for p in calibrated_dev], run_name="dev")
     test_sum = summarize_eval_rows([eval_by_pid[p["pid"]] for p in calibrated_test], run_name="test")

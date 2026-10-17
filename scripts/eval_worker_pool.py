@@ -33,23 +33,35 @@ EXPECTED_RUNS = [
     "sspo_seed0",
     "sspo_seed1",
     "sspo_seed2",
+    "sspo_seed3",
+    "sspo_seed4",
+    "sspo_seed5",
+    "sspo_seed6",
     "drgrpo_pass1_seed0",
     "drgrpo_pass1_seed1",
     "pkpo_pass8_seed0",
     "pkpo_pass8_seed1",
+    "tang_maj_loo_seed0",
+    "tang_maj_loo_seed1",
+    "tang_maj_loo_seed2",
     "checker_reward_seed0",
     "sspo_turns2_seed0",
+    "sspo_turns2_seed1",
+    "sspo_turns2_seed2",
+    "sspo_turns2_seed3",
+    "sspo_turns2_seed4",
 ]
 
 LOCK_STALE_SECONDS = 1800  # 30 minutes
 
 
-def list_candidate_tasks(results_root: Path) -> Tuple[List[Tuple[Path, str, str]], bool]:
+def list_candidate_tasks(results_root: Path, expected_runs: List[str] | None = None) -> Tuple[List[Tuple[Path, str, str]], bool]:
     """Return `(pending_tasks, all_runs_training_done)`."""
     pending: List[Tuple[Path, str, str]] = []
     all_train_done = True
+    run_list = expected_runs if expected_runs is not None else EXPECTED_RUNS
 
-    for rname in EXPECTED_RUNS:
+    for rname in run_list:
         rdir = results_root / rname
         if not has_done_marker(rdir):
             all_train_done = False
@@ -64,8 +76,9 @@ def list_candidate_tasks(results_root: Path) -> Tuple[List[Tuple[Path, str, str]
                 for d in ckpt_root.iterdir()
                 if d.is_dir() and d.name.startswith("step_") and (d / "lora_adapter" / "adapter_config.json").exists()
             )
-        # Prioritize final checkpoint (step_0030 / step_0020 / step_0000) and test split first
-        steps_ordered = sorted(steps, key=lambda s: (0 if s in ("step_0030", "step_0020", "step_0000") else 1, s))
+        # Prioritize final checkpoint (step_0030 / checker_reward step_0020 / frozen step_0000) and test split first
+        is_final = lambda s, rn=rname: s in ("step_0030", "step_0000") or (s == "step_0020" and rn.startswith("checker_reward"))
+        steps_ordered = sorted(steps, key=lambda s: (0 if is_final(s) else 1, s))
         for split in ("test", "dev"):
             for ckpt in steps_ordered:
                 eval_dir = rdir / "eval"
@@ -75,6 +88,14 @@ def list_candidate_tasks(results_root: Path) -> Tuple[List[Tuple[Path, str, str]
                     continue
                 pending.append((rdir, split, ckpt))
 
+    pending.sort(
+        key=lambda item: (
+            0 if (item[2] in ("step_0030", "step_0000") or (item[2] == "step_0020" and item[0].name.startswith("checker_reward"))) else 1,
+            0 if item[1] == "test" else 1,
+            -int(item[2].split("_")[-1]) if item[2].split("_")[-1].isdigit() else 0,
+            item[0].name,
+        )
+    )
     return pending, all_train_done
 
 
@@ -131,10 +152,12 @@ def evaluate_task_with_shared_engine(
     problems = [p for p in read_jsonl(split_file) if not p["pid"].startswith("sample-bad")]
     max_eval = int(data_cfg.get("max_eval_problems", 100))
     problems = problems[:max_eval]
-    if split == "test":
+    if split == "test" and problems and not problems[0].get("hidden"):
         from benchmark.hidden_test_vault import inject_hidden_tests_in_memory
 
-        problems = inject_hidden_tests_in_memory(problems)
+        vault_rel = data_cfg.get("test_vault_file")
+        vault_path = (REPO_ROOT / vault_rel) if vault_rel else (split_file.parent / "test_hidden.enc")
+        problems = inject_hidden_tests_in_memory(problems, vault_path=vault_path)
 
     arm = rdir.name.split("_seed")[0]
     if "turns2" in rdir.name and not arm.endswith("_turns2"):
@@ -235,6 +258,8 @@ def evaluate_task_with_shared_engine(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Parallel checkpoint evaluation worker.")
     parser.add_argument("--config", type=str, default="configs/pilot.yaml")
+    parser.add_argument("--results-root", type=str, default="results")
+    parser.add_argument("--expected-runs", type=str, default=None, help="Comma-separated list of expected run names")
     parser.add_argument("--worker-id", type=str, default="w0")
     args = parser.parse_args()
 
@@ -246,10 +271,11 @@ def main() -> None:
 
     engine: RolloutEngine | None = None
     lora_counter = 1000
-    results_root = REPO_ROOT / "results"
+    results_root = REPO_ROOT / args.results_root
+    expected_runs = [x.strip() for x in args.expected_runs.split(",") if x.strip()] if args.expected_runs else None
 
     while True:
-        pending, all_train_done = list_candidate_tasks(results_root)
+        pending, all_train_done = list_candidate_tasks(results_root, expected_runs=expected_runs)
         claimed = None
         for rdir, split, ckpt in pending:
             if try_acquire_lock(rdir / "eval", split, ckpt, args.worker_id):

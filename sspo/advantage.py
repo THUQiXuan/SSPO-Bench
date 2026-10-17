@@ -220,7 +220,7 @@ def load_policy_module_for_arm(arm: str):
         spec.loader.exec_module(mod)
         return mod
 
-    if arm in ("sspo", "drgrpo_pass1", "pkpo_pass8", "checker_reward"):
+    if arm in ("sspo", "drgrpo_pass1", "pkpo_pass8", "checker_reward", "tang_maj_loo"):
         return importlib.import_module(f"benchmark.reference_algorithms.{arm}")
 
     return importlib.import_module("benchmark.agent_algorithm")
@@ -255,12 +255,13 @@ def compute_arm_advantages(
     - `drgrpo_pass1`: Dr. GRPO on gold hidden test reward `g(y)` (`k = 1`, `benchmark/reference_algorithms/drgrpo_pass1.py`)
     - `pkpo_pass8`: PKPO pass@8 objective on `g(y)` (`k = 8`, `alpha = 0`, `benchmark/reference_algorithms/pkpo_pass8.py`)
     - `checker_reward`: Dr. GRPO on checker reward `Chk(y)` (`benchmark/reference_algorithms/checker_reward.py`)
+    - `tang_maj_loo`: Tang et al. (2503.19595) majority-vote LOO with mean centering (`benchmark/reference_algorithms/tang_maj_loo.py`)
     """
     n = len(g_list)
-    if arm == "agent":
+    if arm in ("agent", "tang_maj_loo"):
         from benchmark.agent_algorithm import GroupContext
 
-        mod = load_policy_module_for_arm("agent")
+        mod = load_policy_module_for_arm(arm)
         group = classify_candidates(g_list, chk_list, sig_list, sigma_plus=sigma_plus)
         ctx = GroupContext(
             pid=str(pid),

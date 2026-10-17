@@ -1,0 +1,50 @@
+{
+  "run_name": "sspo_turns2_seed3",
+  "n_problems": 100,
+  "pass_at_k": {
+    "1": 0.215,
+    "2": 0.311667,
+    "4": 0.410038,
+    "8": 0.498005,
+    "16": 0.57
+  },
+  "cov_at_k": {
+    "1": 0.1975,
+    "2": 0.286583,
+    "4": 0.379786,
+    "8": 0.474943,
+    "16": 0.56
+  },
+  "select_at_k": {
+    "1": 0.19675,
+    "2": 0.2792,
+    "4": 0.366175,
+    "8": 0.451001,
+    "16": 0.513738
+  },
+  "select_at_k_exact": {
+    "1": 0.1975,
+    "2": 0.280458,
+    "4": 0.366479,
+    "8": 0.448103,
+    "16": 0.513738
+  },
+  "gap_at_k": {
+    "1": 0.00075,
+    "2": 0.007383,
+    "4": 0.013611,
+    "8": 0.023943,
+    "16": 0.046262
+  },
+  "selector_gain_k_vs_pass1": 0.236001,
+  "critical_problem_rate": 0.11,
+  "cluster_impure_rate": 0.11,
+  "eps_hat_mean": 0.0175,
+  "chk_pass_rate_mean": 0.243125,
+  "arm": "sspo_turns2",
+  "seed": 3,
+  "eval_file": "results/sspo_turns2_seed3/eval/test_step_0015.jsonl",
+  "ckpt": "step_0015",
+  "latest_ckpt": "step_0030",
+  "latest_select_at_8": 0.398957
+}

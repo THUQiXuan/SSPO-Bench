@@ -1,5 +1,5 @@
 {
-  "benchmark_name": "SSPO-Bench v1.0 (40K Context)",
+  "benchmark_name": "SSPO-Bench v1.2 (Dual-Benchmark 40K Context Suite)",
   "base_model": "Qwen/Qwen3-4B",
   "context_window": {
     "max_context_length": 40960,
@@ -11,7 +11,6 @@
     "alpha": 128
   },
   "eval_protocol": {
-    "n_problems": 100,
     "n_eval_rollouts": 16,
     "k_deploy": 8,
     "k_list": [1, 2, 4, 8, 16],
@@ -19,203 +18,371 @@
     "n_subsets": 200,
     "subset_seed": 42
   },
-  "diagnostic_gate": {
-    "n_problems": 91,
-    "pass_at_1": 0.3613,
-    "cov_at_8": 0.7658,
-    "select_at_8": 0.7371,
-    "selector_gain_over_pass1": 0.3758,
-    "selection_gap_at_8": 0.0287,
-    "critical_problem_rate": 0.2088,
-    "cluster_impure_rate": 0.1319,
-    "dp_vs_bruteforce_max_diff": 8.33e-15,
-    "blind_direction_taylor_ratio": 1.0184
+  "benchmark_1": {
+    "config": "configs/pilot.yaml",
+    "results_dir": "results",
+    "splits": {
+      "train_problems": 91,
+      "dev_problems": 100,
+      "test_problems": 100
+    },
+    "diagnostic_gate": {
+      "n_problems": 91,
+      "pass_at_1": 0.3613,
+      "cov_at_8": 0.7658,
+      "select_at_8": 0.7371,
+      "selector_gain_over_pass1": 0.3758,
+      "selection_gap_at_8": 0.0287,
+      "critical_problem_rate": 0.2088,
+      "cluster_impure_rate": 0.1319,
+      "dp_vs_bruteforce_max_diff": 8.33e-15
+    },
+    "baselines": [
+      {
+        "arm": "frozen",
+        "description": "Untrained base model (Qwen/Qwen3-4B @ 40,960 context, paired seed-matched eval)",
+        "turns": 1,
+        "seeds": [0],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.3895,
+          "pass_at_1_mean": 0.1650,
+          "pass_at_8_mean": 0.4362
+        },
+        "final_ckpt": {
+          "step": 0,
+          "dev_select_at_8_mean": 0.3223,
+          "test_select_at_8_mean": 0.3895,
+          "pass_at_1_mean": 0.1650,
+          "pass_at_8_mean": 0.4362
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3895
+        }
+      },
+      {
+        "arm": "checker_reward",
+        "description": "Dr. GRPO on public example checker reward Chk(y) only (Proposition C false-positive collapse baseline)",
+        "turns": 1,
+        "seeds": [0],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.4005,
+          "pass_at_1_mean": 0.1731,
+          "pass_at_8_mean": 0.4435
+        },
+        "final_ckpt": {
+          "step": 20,
+          "dev_select_at_8_mean": 0.3130,
+          "test_select_at_8_mean": 0.3766,
+          "pass_at_1_mean": 0.1612,
+          "pass_at_8_mean": 0.4215
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3811
+        }
+      },
+      {
+        "arm": "drgrpo_pass1",
+        "description": "Standard Pass@1 Dr. GRPO on hidden test reward g(y) (Default starting template in benchmark/agent_algorithm.py)",
+        "turns": 1,
+        "seeds": [0, 1],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.3932,
+          "select_at_8_std": 0.0042,
+          "pass_at_1_mean": 0.1725,
+          "pass_at_8_mean": 0.4410
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3340,
+          "test_select_at_8_mean": 0.3879,
+          "test_select_at_8_std": 0.0118,
+          "pass_at_1_mean": 0.1688,
+          "pass_at_8_mean": 0.4323
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3887
+        }
+      },
+      {
+        "arm": "pkpo_pass8",
+        "description": "PKPO Pass@8 subset-LOO coverage policy optimization on g(y) (DeepMind, 2505.15201)",
+        "turns": 1,
+        "seeds": [0, 1],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.3991,
+          "select_at_8_std": 0.0110,
+          "pass_at_1_mean": 0.1675,
+          "pass_at_8_mean": 0.4391
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3110,
+          "test_select_at_8_mean": 0.3824,
+          "test_select_at_8_std": 0.0097,
+          "pass_at_1_mean": 0.1703,
+          "pass_at_8_mean": 0.4259
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3862
+        }
+      },
+      {
+        "arm": "tang_maj_loo",
+        "description": "Mean-centered leave-one-out majority-vote estimator (Tang et al., Meta, 2503.19595)",
+        "turns": 1,
+        "seeds": [0, 1, 2],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.4102,
+          "select_at_8_std": 0.0040,
+          "pass_at_1_mean": 0.1700,
+          "pass_at_8_mean": 0.4362
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3274,
+          "test_select_at_8_mean": 0.3971,
+          "test_select_at_8_std": 0.0134,
+          "pass_at_1_mean": 0.1688,
+          "pass_at_8_mean": 0.4271
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3933
+        }
+      },
+      {
+        "arm": "sspo",
+        "description": "Single-turn Selection-Aware Policy Optimization (alpha = 0.7, exact O(n^2 k) DP subset-LOO selector credit assignment)",
+        "turns": 1,
+        "seeds": [0, 1, 2, 3, 4],
+        "extra_seeds": [5, 6],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.3980,
+          "select_at_8_std": 0.0077,
+          "select_at_8_7seed_mean": 0.3993,
+          "pass_at_1_mean": 0.1744,
+          "pass_at_8_mean": 0.4412
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3333,
+          "test_select_at_8_mean": 0.3923,
+          "test_select_at_8_std": 0.0050,
+          "pass_at_1_mean": 0.1710,
+          "pass_at_8_mean": 0.4338
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3892
+        }
+      },
+      {
+        "arm": "sspo_turns2",
+        "description": "Two-turn execution feedback + Selection-Aware Policy Optimization (multi-turn SSPO)",
+        "turns": 2,
+        "seeds": [0, 1, 2, 3, 4],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.4334,
+          "select_at_8_std": 0.0113,
+          "pass_at_1_mean": 0.2189,
+          "pass_at_8_mean": 0.4861
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3600,
+          "test_select_at_8_mean": 0.4149,
+          "test_select_at_8_std": 0.0125,
+          "pass_at_1_mean": 0.2118,
+          "pass_at_8_mean": 0.4601
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.4159,
+          "test_select_at_8_std": 0.0092
+        }
+      }
+    ]
   },
-  "baselines": [
-    {
-      "arm": "frozen",
-      "description": "Untrained base model (Qwen/Qwen3-4B @ 40,960 context)",
-      "turns": 1,
-      "seeds": [0],
-      "best_ckpt": {
-        "step": 0,
-        "pass_at_1": 0.1619,
-        "pass_at_8": 0.4292,
-        "cov_at_8": 0.3975,
-        "select_at_4": 0.3046,
-        "select_at_8": 0.3864,
-        "gap_at_8": 0.0111,
-        "chk_pass_rate": 0.1744,
-        "cluster_impure_rate": 0.0800
-      },
-      "final_ckpt": {
-        "step": 0,
-        "pass_at_1": 0.1619,
-        "pass_at_8": 0.4292,
-        "select_at_8": 0.3864
-      },
-      "val_selected_ckpt": {
-        "dev_select_at_8": 0.3177,
-        "test_select_at_8": 0.3864
-      }
+  "benchmark_2": {
+    "config": "configs/pilot_b2.yaml",
+    "results_dir": "results_b2",
+    "splits": {
+      "train_problems": 64,
+      "dev_problems": 64,
+      "test_problems": 64
     },
-    {
-      "arm": "checker_reward",
-      "description": "Dr. GRPO on public example checker reward Chk(y) only (Proposition C false-positive collapse baseline)",
-      "turns": 1,
-      "seeds": [0],
-      "best_ckpt": {
-        "step": 15,
-        "pass_at_1": 0.1731,
-        "pass_at_8": 0.4435,
-        "cov_at_8": 0.4192,
-        "select_at_4": 0.3168,
-        "select_at_8": 0.4005,
-        "gap_at_8": 0.0187,
-        "chk_pass_rate": 0.1950,
-        "cluster_impure_rate": 0.1100
-      },
-      "final_ckpt": {
-        "step": 20,
-        "pass_at_1": 0.1613,
-        "pass_at_8": 0.4215,
-        "select_at_8": 0.3766
-      },
-      "val_selected_ckpt": {
-        "dev_select_at_8": 0.3234,
-        "test_select_at_8": 0.3811
-      }
+    "diagnostic_gate": {
+      "n_problems": 64,
+      "pass_at_1": 0.3115,
+      "cov_at_8": 0.7289,
+      "select_at_8": 0.6788,
+      "selector_gain_over_pass1": 0.3673,
+      "selection_gap_at_8": 0.0501,
+      "critical_problem_rate": 0.2031,
+      "cluster_impure_rate": 0.1406,
+      "dp_vs_bruteforce_max_diff": 4.44e-16
     },
-    {
-      "arm": "drgrpo_pass1",
-      "description": "Standard Pass@1 Dr. GRPO on hidden test reward g(y) (Default starting template in benchmark/agent_algorithm.py)",
-      "turns": 1,
-      "seeds": [0, 1],
-      "best_ckpt": {
-        "pass_at_1": 0.1725,
-        "pass_at_8": 0.4411,
-        "cov_at_8": 0.4068,
-        "select_at_4": 0.3132,
-        "select_at_8": 0.3932,
-        "select_at_8_per_seed": {
-          "0": 0.3902,
-          "1": 0.3962
+    "baselines": [
+      {
+        "arm": "frozen",
+        "description": "Untrained base model on Benchmark 2 (paired seed-matched eval)",
+        "turns": 1,
+        "seeds": [0],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.3395,
+          "pass_at_1_mean": 0.1836,
+          "pass_at_8_mean": 0.4044
         },
-        "gap_at_8": 0.0136,
-        "chk_pass_rate": 0.1903,
-        "cluster_impure_rate": 0.0550
-      },
-      "final_ckpt": {
-        "step": 30,
-        "pass_at_1": 0.1688,
-        "pass_at_8": 0.4323,
-        "select_at_8": 0.3879,
-        "select_at_8_per_seed": {
-          "0": 0.3795,
-          "1": 0.3962
+        "final_ckpt": {
+          "step": 0,
+          "dev_select_at_8_mean": 0.3327,
+          "test_select_at_8_mean": 0.3395,
+          "pass_at_1_mean": 0.1836,
+          "pass_at_8_mean": 0.4044
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3395
         }
       },
-      "val_selected_ckpt": {
-        "dev_select_at_8": 0.3375,
-        "test_select_at_8": 0.3887
-      }
-    },
-    {
-      "arm": "pkpo_pass8",
-      "description": "PKPO Pass@8 coverage-aware policy optimization on g(y)",
-      "turns": 1,
-      "seeds": [0, 1],
-      "best_ckpt": {
-        "pass_at_1": 0.1675,
-        "pass_at_8": 0.4391,
-        "cov_at_8": 0.4134,
-        "select_at_4": 0.3145,
-        "select_at_8": 0.3991,
-        "select_at_8_per_seed": {
-          "0": 0.4068,
-          "1": 0.3913
+      {
+        "arm": "checker_reward",
+        "description": "Dr. GRPO on public example checker reward Chk(y) only",
+        "turns": 1,
+        "seeds": [0],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.4087,
+          "pass_at_1_mean": 0.2109,
+          "pass_at_8_mean": 0.4839
         },
-        "gap_at_8": 0.0144,
-        "chk_pass_rate": 0.1844,
-        "cluster_impure_rate": 0.0700
-      },
-      "final_ckpt": {
-        "step": 30,
-        "pass_at_1": 0.1703,
-        "pass_at_8": 0.4259,
-        "select_at_8": 0.3824,
-        "select_at_8_per_seed": {
-          "0": 0.3892,
-          "1": 0.3755
+        "final_ckpt": {
+          "step": 20,
+          "dev_select_at_8_mean": 0.3537,
+          "test_select_at_8_mean": 0.4087,
+          "pass_at_1_mean": 0.2109,
+          "pass_at_8_mean": 0.4839
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3709
         }
       },
-      "val_selected_ckpt": {
-        "dev_select_at_8": 0.3372,
-        "test_select_at_8": 0.3863
-      }
-    },
-    {
-      "arm": "sspo",
-      "description": "Single-turn Selection-Aware Policy Optimization (alpha = 0.7, DP leave-one-out selector credit assignment)",
-      "turns": 1,
-      "seeds": [0, 1, 2],
-      "best_ckpt": {
-        "pass_at_1": 0.1739,
-        "pass_at_8": 0.4457,
-        "cov_at_8": 0.4168,
-        "select_at_4": 0.3201,
-        "select_at_8": 0.4011,
-        "select_at_8_per_seed": {
-          "0": 0.4009,
-          "1": 0.3979,
-          "2": 0.4046
+      {
+        "arm": "drgrpo_pass1",
+        "description": "Standard Pass@1 Dr. GRPO on hidden test reward g(y)",
+        "turns": 1,
+        "seeds": [0, 1],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.4052,
+          "select_at_8_std": 0.0100,
+          "pass_at_1_mean": 0.1997,
+          "pass_at_8_mean": 0.4719
         },
-        "gap_at_8": 0.0157,
-        "chk_pass_rate": 0.1940,
-        "cluster_impure_rate": 0.0800
-      },
-      "final_ckpt": {
-        "step": 30,
-        "pass_at_1": 0.1717,
-        "pass_at_8": 0.4384,
-        "select_at_8": 0.3944,
-        "select_at_8_per_seed": {
-          "0": 0.3953,
-          "1": 0.3979,
-          "2": 0.3900
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3550,
+          "test_select_at_8_mean": 0.3816,
+          "test_select_at_8_std": 0.0071,
+          "pass_at_1_mean": 0.1987,
+          "pass_at_8_mean": 0.4542
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3802
         }
       },
-      "val_selected_ckpt": {
-        "dev_select_at_8": 0.3334,
-        "test_select_at_8": 0.3892
-      }
-    },
-    {
-      "arm": "sspo_turns2",
-      "description": "Two-turn execution feedback + Selection-Aware Policy Optimization (reference multi-turn ceiling)",
-      "turns": 2,
-      "seeds": [0],
-      "best_ckpt": {
-        "step": 30,
-        "pass_at_1": 0.2206,
-        "pass_at_8": 0.4804,
-        "cov_at_8": 0.4507,
-        "select_at_4": 0.3493,
-        "select_at_8": 0.4322,
-        "gap_at_8": 0.0185,
-        "chk_pass_rate": 0.2431,
-        "cluster_impure_rate": 0.1000
+      {
+        "arm": "pkpo_pass8",
+        "description": "PKPO Pass@8 subset-LOO coverage policy optimization on g(y) (DeepMind, 2505.15201)",
+        "turns": 1,
+        "seeds": [0, 1],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.4015,
+          "select_at_8_std": 0.0186,
+          "pass_at_1_mean": 0.2061,
+          "pass_at_8_mean": 0.4610
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3382,
+          "test_select_at_8_mean": 0.3786,
+          "test_select_at_8_std": 0.0093,
+          "pass_at_1_mean": 0.1987,
+          "pass_at_8_mean": 0.4350
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3705
+        }
       },
-      "final_ckpt": {
-        "step": 30,
-        "pass_at_1": 0.2206,
-        "pass_at_8": 0.4804,
-        "select_at_8": 0.4322
+      {
+        "arm": "tang_maj_loo",
+        "description": "Mean-centered leave-one-out majority-vote estimator (Tang et al., Meta, 2503.19595)",
+        "turns": 1,
+        "seeds": [0, 1, 2],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.4034,
+          "select_at_8_std": 0.0129,
+          "pass_at_1_mean": 0.2018,
+          "pass_at_8_mean": 0.4652
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3362,
+          "test_select_at_8_mean": 0.3833,
+          "test_select_at_8_std": 0.0072,
+          "pass_at_1_mean": 0.1943,
+          "pass_at_8_mean": 0.4533
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3792
+        }
       },
-      "val_selected_ckpt": {
-        "dev_select_at_8": 0.3746,
-        "test_select_at_8": 0.4178
+      {
+        "arm": "sspo",
+        "description": "Single-turn Selection-Aware Policy Optimization (alpha = 0.7, exact O(n^2 k) DP subset-LOO selector credit assignment)",
+        "turns": 1,
+        "seeds": [0, 1, 2, 3, 4],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.3918,
+          "select_at_8_std": 0.0040,
+          "pass_at_1_mean": 0.2006,
+          "pass_at_8_mean": 0.4524
+        },
+        "epoch5_ckpt": {
+          "step": 20,
+          "test_select_at_8_mean": 0.3841,
+          "test_select_at_8_std": 0.0194
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.3474,
+          "test_select_at_8_mean": 0.3717,
+          "test_select_at_8_std": 0.0089,
+          "pass_at_1_mean": 0.1936,
+          "pass_at_8_mean": 0.4360
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.3731
+        }
+      },
+      {
+        "arm": "sspo_turns2",
+        "description": "Two-turn execution feedback + Selection-Aware Policy Optimization (multi-turn SSPO)",
+        "turns": 2,
+        "seeds": [0, 1, 2, 3, 4],
+        "peak_ckpt": {
+          "select_at_8_mean": 0.4695,
+          "select_at_8_std": 0.0119,
+          "pass_at_1_mean": 0.2344,
+          "pass_at_8_mean": 0.5318
+        },
+        "final_ckpt": {
+          "step": 30,
+          "dev_select_at_8_mean": 0.4167,
+          "test_select_at_8_mean": 0.4390,
+          "test_select_at_8_std": 0.0157,
+          "pass_at_1_mean": 0.2230,
+          "pass_at_8_mean": 0.5038
+        },
+        "val_selected_ckpt": {
+          "test_select_at_8_mean": 0.4455,
+          "test_select_at_8_std": 0.0171
+        }
       }
-    }
-  ]
+    ]
+  }
 }

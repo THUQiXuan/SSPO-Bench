@@ -435,7 +435,8 @@ def generate_tables_and_report(results_root: str | Path = REPO_ROOT / "results")
 
         # Read evaluation jsonl files
         eval_dir = run_dir / "eval"
-        eval_files = sorted(eval_dir.glob("*.jsonl")) if eval_dir.exists() else []
+        test_eval_files = sorted(eval_dir.glob("test_*.jsonl")) if eval_dir.exists() else []
+        eval_files = test_eval_files if test_eval_files else (sorted(eval_dir.glob("*.jsonl")) if eval_dir.exists() else [])
         if eval_files:
             best_summary = None
             best_rows = None
@@ -566,22 +567,26 @@ def generate_tables_and_report(results_root: str | Path = REPO_ROOT / "results")
         curve_lines.append(",".join(str(crow.get(f, "")) for f in curve_fields))
     atomic_write_text(curves_csv_path, "\n".join(curve_lines) + "\n")
 
-    # 3. Paired bootstrap comparisons of `sspo` vs (`drgrpo_pass1`, `pkpo_pass8`, `frozen`, `checker_reward`)
+    # 3. Paired bootstrap comparisons of (`sspo_turns2`, `sspo`) vs (`sspo`, `tang_maj_loo`, `drgrpo_pass1`, `pkpo_pass8`, `frozen`, `checker_reward`)
     comparisons: List[Dict[str, Any]] = []
-    if "sspo" in arm_eval_runs:
-        for base_arm in ("drgrpo_pass1", "pkpo_pass8", "frozen", "checker_reward"):
-            if base_arm in arm_eval_runs:
-                res_boot = paired_two_level_bootstrap(
-                    arm_a_runs=arm_eval_runs["sspo"],
-                    arm_b_runs=arm_eval_runs[base_arm],
-                    metric="select_at_k",
-                    k_key="8",
-                )
-                res_boot["arm_a"] = "sspo"
-                res_boot["arm_b"] = base_arm
-                res_boot["metric"] = "select@8"
-                comparisons.append(res_boot)
-        comparisons = holm_bonferroni(comparisons)
+    for main_arm in ("sspo_turns2", "sspo"):
+        if main_arm not in arm_eval_runs:
+            continue
+        sub_comps: List[Dict[str, Any]] = []
+        for base_arm in ("sspo", "tang_maj_loo", "drgrpo_pass1", "pkpo_pass8", "frozen", "checker_reward"):
+            if base_arm == main_arm or base_arm not in arm_eval_runs:
+                continue
+            res_boot = paired_two_level_bootstrap(
+                arm_a_runs=arm_eval_runs[main_arm],
+                arm_b_runs=arm_eval_runs[base_arm],
+                metric="select_at_k",
+                k_key="8",
+            )
+            res_boot["arm_a"] = main_arm
+            res_boot["arm_b"] = base_arm
+            res_boot["metric"] = "select@8"
+            sub_comps.append(res_boot)
+        comparisons.extend(holm_bonferroni(sub_comps))
 
     boot_csv_path = tables_dir / "paired_bootstrap.csv"
     boot_fields = [

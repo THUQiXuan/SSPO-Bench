@@ -21,7 +21,7 @@ def test_default_and_reference_algorithms_pass_verification():
     assert default_rep["passed"], f"Default agent_algorithm failed: {default_rep}"
 
     ref_dir = REPO_ROOT / "benchmark" / "reference_algorithms"
-    for name in ("drgrpo_pass1.py", "pkpo_pass8.py", "checker_reward.py", "sspo.py"):
+    for name in ("drgrpo_pass1.py", "pkpo_pass8.py", "checker_reward.py", "tang_maj_loo.py", "sspo.py"):
         rep = run_full_verification(ref_dir / name, check_locks=False)
         assert rep["passed"], f"Reference algorithm {name} failed verification: {rep}"
 

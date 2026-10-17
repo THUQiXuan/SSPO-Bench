@@ -1,0 +1,12 @@
+arm_a,arm_b,metric,n_problems,n_clusters,mean_diff,ci_low,ci_high,se,p_value,p_value_holm,win
+sspo_turns2,sspo,select@8,64,45,0.077729,0.037063,0.127926,0.023156,0.0,0.0,True
+sspo_turns2,tang_maj_loo,select@8,64,45,0.066091,0.021532,0.115409,0.023932,0.003,0.009,True
+sspo_turns2,drgrpo_pass1,select@8,64,45,0.06426,0.014247,0.123998,0.027664,0.014,0.018,True
+sspo_turns2,pkpo_pass8,select@8,64,45,0.06801,0.017868,0.122373,0.027254,0.009,0.018,True
+sspo_turns2,frozen,select@8,64,45,0.129951,0.073789,0.189333,0.030421,0.0,0.0,True
+sspo_turns2,checker_reward,select@8,64,45,0.060793,0.015839,0.114499,0.025117,0.001,0.004,True
+sspo,tang_maj_loo,select@8,64,45,-0.011637,-0.043344,0.02004,0.016,0.447,1.0,False
+sspo,drgrpo_pass1,select@8,64,45,-0.013469,-0.054532,0.024472,0.019952,0.489,1.0,False
+sspo,pkpo_pass8,select@8,64,45,-0.009719,-0.052583,0.029975,0.020862,0.637,1.0,False
+sspo,frozen,select@8,64,45,0.052223,0.011714,0.097395,0.021177,0.008,0.04,True
+sspo,checker_reward,select@8,64,45,-0.016935,-0.052484,0.023223,0.019606,0.393,1.0,False

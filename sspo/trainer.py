@@ -741,9 +741,9 @@ def run_training(
         foreach=False,
     )
 
-    # Load training problems (prefer calibrated train.jsonl or train_active.jsonl)
-    active_train_path = REPO_ROOT / "data" / "train_active.jsonl"
+    # Load training problems (prefer calibrated train.jsonl or train_active.jsonl in the configured data directory)
     default_train_path = REPO_ROOT / data_cfg.get("train_file", "data/train.jsonl")
+    active_train_path = default_train_path.parent / "train_active.jsonl"
     sample_path = REPO_ROOT / "data" / "sample_problems.jsonl"
     if active_train_path.exists() and len(read_jsonl(active_train_path)) > 0:
         problems = read_jsonl(active_train_path)
@@ -1243,7 +1243,7 @@ def run_evaluation(
     if eval_split == "test":
         from benchmark.hidden_test_vault import inject_hidden_tests_in_memory
 
-        problems = inject_hidden_tests_in_memory(problems)
+        problems = inject_hidden_tests_in_memory(problems, vault_path=split_file.parent / "test_hidden.enc")
 
     arm = rdir.name.split("_seed")[0]
     if (rdir / "manifest.json").exists():
@@ -1365,7 +1365,7 @@ def main():
         "--arm",
         type=str,
         default="sspo",
-        choices=["agent", "sspo", "drgrpo_pass1", "pkpo_pass8", "checker_reward", "frozen"],
+        choices=["agent", "sspo", "drgrpo_pass1", "pkpo_pass8", "checker_reward", "tang_maj_loo", "frozen"],
     )
     p_train.add_argument("--seed", type=int, default=0)
     p_train.add_argument("--run-dir", type=str, default=None)

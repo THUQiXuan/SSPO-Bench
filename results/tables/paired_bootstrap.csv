@@ -1,5 +1,12 @@
 arm_a,arm_b,metric,n_problems,n_clusters,mean_diff,ci_low,ci_high,se,p_value,p_value_holm,win
-sspo,drgrpo_pass1,select@8,100,60,0.007894,-0.022208,0.035952,0.014852,0.581,1.0,False
-sspo,pkpo_pass8,select@8,100,60,0.002047,-0.027331,0.032833,0.01547,0.923,1.0,False
-sspo,frozen,select@8,100,60,0.014766,-0.011967,0.039791,0.01347,0.297,1.0,False
-sspo,checker_reward,select@8,100,60,0.000647,-0.028298,0.028009,0.014499,0.936,1.0,False
+sspo_turns2,sspo,select@8,100,60,0.034022,0.009515,0.061564,0.013409,0.008,0.04,True
+sspo_turns2,tang_maj_loo,select@8,100,60,0.023195,-0.006083,0.05422,0.015473,0.134,0.134,False
+sspo_turns2,drgrpo_pass1,select@8,100,60,0.040134,0.010353,0.074057,0.016265,0.008,0.04,True
+sspo_turns2,pkpo_pass8,select@8,100,60,0.034286,0.005558,0.069295,0.015982,0.017,0.051,True
+sspo_turns2,frozen,select@8,100,60,0.043893,0.014751,0.073505,0.015155,0.003,0.018,True
+sspo_turns2,checker_reward,select@8,100,60,0.032887,0.002275,0.061482,0.014681,0.036,0.072,True
+sspo,tang_maj_loo,select@8,100,60,-0.010826,-0.03479,0.013619,0.012297,0.363,1.0,False
+sspo,drgrpo_pass1,select@8,100,60,0.006112,-0.017884,0.032434,0.012619,0.591,1.0,False
+sspo,pkpo_pass8,select@8,100,60,0.000265,-0.025648,0.027708,0.013261,0.986,1.0,False
+sspo,frozen,select@8,100,60,0.009871,-0.018527,0.038416,0.014343,0.505,1.0,False
+sspo,checker_reward,select@8,100,60,-0.001134,-0.024814,0.02236,0.011866,0.938,1.0,False

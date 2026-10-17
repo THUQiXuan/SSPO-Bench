@@ -1,0 +1,50 @@
+{
+  "run_name": "tang_maj_loo_seed2",
+  "n_problems": 100,
+  "pass_at_k": {
+    "1": 0.174375,
+    "2": 0.263583,
+    "4": 0.355352,
+    "8": 0.436807,
+    "16": 0.52
+  },
+  "cov_at_k": {
+    "1": 0.1575,
+    "2": 0.239917,
+    "4": 0.32872,
+    "8": 0.419654,
+    "16": 0.52
+  },
+  "select_at_k": {
+    "1": 0.15935,
+    "2": 0.23625,
+    "4": 0.321446,
+    "8": 0.405524,
+    "16": 0.476453
+  },
+  "select_at_k_exact": {
+    "1": 0.1575,
+    "2": 0.236333,
+    "4": 0.321367,
+    "8": 0.402987,
+    "16": 0.476453
+  },
+  "gap_at_k": {
+    "1": -0.00185,
+    "2": 0.003667,
+    "4": 0.007274,
+    "8": 0.01413,
+    "16": 0.043547
+  },
+  "selector_gain_k_vs_pass1": 0.231149,
+  "critical_problem_rate": 0.1,
+  "cluster_impure_rate": 0.09,
+  "eps_hat_mean": 0.016875,
+  "chk_pass_rate_mean": 0.19,
+  "arm": "tang_maj_loo",
+  "seed": 2,
+  "eval_file": "results/tang_maj_loo_seed2/eval/test_step_0010.jsonl",
+  "ckpt": "step_0010",
+  "latest_ckpt": "step_0030",
+  "latest_select_at_8": 0.388229
+}

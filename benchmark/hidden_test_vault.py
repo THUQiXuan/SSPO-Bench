@@ -34,17 +34,17 @@ def _derive_keys(secret: str, salt: bytes) -> tuple[bytes, bytes]:
 
 
 def _xor_keystream(data: bytes, enc_key: bytes, nonce: bytes) -> bytes:
-    out = bytearray(len(data))
+    n_len = len(data)
+    if n_len == 0:
+        return b""
     block_size = 32
-    n_blocks = (len(data) + block_size - 1) // block_size
-    for blk in range(n_blocks):
-        counter = blk.to_bytes(8, "big")
-        ks = hmac.new(enc_key, nonce + counter, hashlib.sha256).digest()
-        start = blk * block_size
-        end = min(len(data), start + block_size)
-        for i in range(start, end):
-            out[i] = data[i] ^ ks[i - start]
-    return bytes(out)
+    n_blocks = (n_len + block_size - 1) // block_size
+    ks_blocks = [
+        hmac.new(enc_key, nonce + blk.to_bytes(8, "big"), hashlib.sha256).digest()
+        for blk in range(n_blocks)
+    ]
+    ks_bytes = b"".join(ks_blocks)[:n_len]
+    return (int.from_bytes(data, "big") ^ int.from_bytes(ks_bytes, "big")).to_bytes(n_len, "big")
 
 
 def encrypt_payload(payload_obj: Dict[str, Any], secret: str = DEFAULT_VAULT_KEY) -> bytes:
@@ -127,19 +127,31 @@ def Seal_test_split(
     }
 
 
+def _read_vault_bytes(v_path: Path) -> bytes | None:
+    if v_path.exists():
+        return v_path.read_bytes()
+    parts = sorted(v_path.parent.glob(f"{v_path.name}.part*"))
+    if parts:
+        return b"".join(p.read_bytes() for p in parts)
+    return None
+
+
 def inject_hidden_tests_in_memory(
     problems: List[Dict[str, Any]],
     vault_path: str | Path = REPO_ROOT / "data" / "test_hidden.enc",
     secret: str | None = None,
 ) -> List[Dict[str, Any]]:
-    """Return a copy of `problems` with `hidden` tests populated in-memory from `test_hidden.enc`."""
+    """Return a copy of `problems` with `hidden` tests populated in-memory from `test_hidden.enc` (or `.part*` shards)."""
     need_decrypt = any(not (p.get("hidden")) for p in problems)
     v_path = Path(vault_path)
-    if not need_decrypt or not v_path.exists():
+    if not need_decrypt:
+        return problems
+    raw_blob = _read_vault_bytes(v_path)
+    if raw_blob is None:
         return problems
 
     key = secret or os.environ.get("SSPO_BENCH_KEY", DEFAULT_VAULT_KEY)
-    payload = decrypt_payload(v_path.read_bytes(), secret=key)
+    payload = decrypt_payload(raw_blob, secret=key)
     hidden_by_pid = payload.get("hidden_by_pid", {})
 
     enriched: List[Dict[str, Any]] = []

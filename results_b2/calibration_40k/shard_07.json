@@ -1,0 +1,3784 @@
+{
+  "lcb-confirm-v1-atcoder-abc364_e": {
+    "pid": "lcb-confirm-v1-atcoder-abc364_e",
+    "contest_id": "lcb_confirm:abc364",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc322_e": {
+    "pid": "lcb-confirm-v1-atcoder-abc322_e",
+    "contest_id": "lcb_confirm:abc322",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.07,
+      "2": 0.125,
+      "4": 0.171667,
+      "8": 0.203333,
+      "16": 0.25
+    },
+    "select_at_k_exact": {
+      "1": 0.0625,
+      "2": 0.1125,
+      "4": 0.182005,
+      "8": 0.203333,
+      "16": 0.25
+    },
+    "gap_at_k": {
+      "1": -0.0075,
+      "2": 0.0,
+      "4": 0.078333,
+      "8": 0.296667,
+      "16": 0.75
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": true,
+    "cluster_impure": true,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.25,
+    "counts": {
+      "n_C": 1,
+      "n_T": 12,
+      "n_W": 3,
+      "n_W_star": 0,
+      "n_clusters": 1,
+      "max_wrong_cluster": 3
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc305_d": {
+    "pid": "lcb-confirm-v1-atcoder-abc305_d",
+    "contest_id": "lcb_confirm:abc305",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc302_f": {
+    "pid": "lcb-confirm-v1-atcoder-abc302_f",
+    "contest_id": "lcb_confirm:abc302",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.375,
+    "counts": {
+      "n_C": 0,
+      "n_T": 10,
+      "n_W": 6,
+      "n_W_star": 0,
+      "n_clusters": 1,
+      "max_wrong_cluster": 6
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc321_e": {
+    "pid": "lcb-confirm-v1-atcoder-abc321_e",
+    "contest_id": "lcb_confirm:abc321",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc367_f": {
+    "pid": "lcb-confirm-v1-atcoder-abc367_f",
+    "contest_id": "lcb_confirm:abc367",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0625,
+    "counts": {
+      "n_C": 0,
+      "n_T": 15,
+      "n_W": 1,
+      "n_W_star": 0,
+      "n_clusters": 1,
+      "max_wrong_cluster": 1
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc360_e": {
+    "pid": "lcb-confirm-v1-atcoder-abc360_e",
+    "contest_id": "lcb_confirm:abc360",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.07,
+      "2": 0.13,
+      "4": 0.23,
+      "8": 0.54,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": -0.0075,
+      "2": -0.005,
+      "4": 0.02,
+      "8": -0.04,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0625,
+    "counts": {
+      "n_C": 1,
+      "n_T": 15,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc307_e": {
+    "pid": "lcb-confirm-v1-atcoder-abc307_e",
+    "contest_id": "lcb_confirm:abc307",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 1.0,
+    "counts": {
+      "n_C": 16,
+      "n_T": 0,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc315_e": {
+    "pid": "lcb-confirm-v1-atcoder-abc315_e",
+    "contest_id": "lcb_confirm:abc315",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0625,
+    "counts": {
+      "n_C": 0,
+      "n_T": 15,
+      "n_W": 1,
+      "n_W_star": 0,
+      "n_clusters": 1,
+      "max_wrong_cluster": 1
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc368_f": {
+    "pid": "lcb-confirm-v1-atcoder-abc368_f",
+    "contest_id": "lcb_confirm:abc368",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.07,
+      "2": 0.15,
+      "4": 0.205,
+      "8": 0.3525,
+      "16": 0.5
+    },
+    "select_at_k_exact": {
+      "1": 0.0625,
+      "2": 0.120833,
+      "4": 0.225,
+      "8": 0.3525,
+      "16": 0.5
+    },
+    "gap_at_k": {
+      "1": -0.0075,
+      "2": -0.025,
+      "4": 0.045,
+      "8": 0.1475,
+      "16": 0.5
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": true,
+    "cluster_impure": true,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.125,
+    "counts": {
+      "n_C": 1,
+      "n_T": 14,
+      "n_W": 1,
+      "n_W_star": 0,
+      "n_clusters": 1,
+      "max_wrong_cluster": 1
+    },
+    "difficulty": "hard"
+  },
+  "lcb-confirm-v1-atcoder-abc307_c": {
+    "pid": "lcb-confirm-v1-atcoder-abc307_c",
+    "contest_id": "lcb_confirm:abc307",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc330_c": {
+    "pid": "lcb-confirm-v1-atcoder-abc330_c",
+    "contest_id": "lcb_confirm:abc330",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc354_c": {
+    "pid": "lcb-confirm-v1-atcoder-abc354_c",
+    "contest_id": "lcb_confirm:abc354",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.5,
+    "counts": {
+      "n_C": 0,
+      "n_T": 8,
+      "n_W": 8,
+      "n_W_star": 0,
+      "n_clusters": 1,
+      "max_wrong_cluster": 8
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc356_d": {
+    "pid": "lcb-confirm-v1-atcoder-abc356_d",
+    "contest_id": "lcb_confirm:abc356",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.1875,
+      "2": 0.35,
+      "4": 0.607143,
+      "8": 0.9,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.1875,
+      "2": 0.35,
+      "4": 0.607143,
+      "8": 0.9,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.205,
+      "2": 0.33,
+      "4": 0.62,
+      "8": 0.895,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.1875,
+      "2": 0.35,
+      "4": 0.607143,
+      "8": 0.9,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": -0.0175,
+      "2": 0.02,
+      "4": -0.012857,
+      "8": 0.005,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.1875,
+    "counts": {
+      "n_C": 3,
+      "n_T": 13,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc315_c": {
+    "pid": "lcb-confirm-v1-atcoder-abc315_c",
+    "contest_id": "lcb_confirm:abc315",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.1875,
+      "2": 0.35,
+      "4": 0.607143,
+      "8": 0.9,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.125,
+      "2": 0.241667,
+      "4": 0.45,
+      "8": 0.766667,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.13,
+      "2": 0.21,
+      "4": 0.44,
+      "8": 0.75,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.125,
+      "2": 0.241667,
+      "4": 0.45,
+      "8": 0.766667,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": -0.005,
+      "2": 0.031667,
+      "4": 0.01,
+      "8": 0.016667,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0625,
+    "chk_pass_rate": 0.125,
+    "counts": {
+      "n_C": 2,
+      "n_T": 14,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc346_c": {
+    "pid": "lcb-confirm-v1-atcoder-abc346_c",
+    "contest_id": "lcb_confirm:abc346",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.6875,
+      "2": 0.916667,
+      "4": 0.997253,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.6875,
+      "2": 0.916667,
+      "4": 0.997253,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.68,
+      "2": 0.93,
+      "4": 0.995,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.6875,
+      "2": 0.916667,
+      "4": 0.997253,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": 0.0075,
+      "2": -0.013333,
+      "4": 0.002253,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.6875,
+    "counts": {
+      "n_C": 11,
+      "n_T": 5,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc319_c": {
+    "pid": "lcb-confirm-v1-atcoder-abc319_c",
+    "contest_id": "lcb_confirm:abc319",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc365_d": {
+    "pid": "lcb-confirm-v1-atcoder-abc365_d",
+    "contest_id": "lcb_confirm:abc365",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.08,
+      "2": 0.1,
+      "4": 0.27,
+      "8": 0.53,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": -0.0175,
+      "2": 0.025,
+      "4": -0.02,
+      "8": -0.03,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0625,
+    "counts": {
+      "n_C": 1,
+      "n_T": 15,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc350_d": {
+    "pid": "lcb-confirm-v1-atcoder-abc350_d",
+    "contest_id": "lcb_confirm:abc350",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "lcb-confirm-v1-atcoder-abc352_c": {
+    "pid": "lcb-confirm-v1-atcoder-abc352_c",
+    "contest_id": "lcb_confirm:abc352",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "100222": {
+    "pid": "100222",
+    "contest_id": "lcb_judge:abc396",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100003": {
+    "pid": "100003",
+    "contest_id": "lcb_judge:abc374",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "100088": {
+    "pid": "100088",
+    "contest_id": "lcb_judge:arc185",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100078": {
+    "pid": "100078",
+    "contest_id": "lcb_judge:abc386",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.8125,
+      "2": 0.975,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.8125,
+      "2": 0.975,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.835,
+      "2": 0.965,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.8125,
+      "2": 0.975,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": -0.0225,
+      "2": 0.01,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.8125,
+    "counts": {
+      "n_C": 13,
+      "n_T": 3,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100214": {
+    "pid": "100214",
+    "contest_id": "lcb_judge:abc394",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100247": {
+    "pid": "100247",
+    "contest_id": "lcb_judge:abc400",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "100071": {
+    "pid": "100071",
+    "contest_id": "lcb_judge:abc384",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.75,
+      "2": 0.95,
+      "4": 0.999451,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.75,
+      "2": 0.95,
+      "4": 0.999451,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.77,
+      "2": 0.925,
+      "4": 0.995,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.75,
+      "2": 0.95,
+      "4": 0.999451,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": -0.02,
+      "2": 0.025,
+      "4": 0.004451,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.75,
+    "counts": {
+      "n_C": 12,
+      "n_T": 4,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "100198": {
+    "pid": "100198",
+    "contest_id": "lcb_judge:abc392",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100253": {
+    "pid": "100253",
+    "contest_id": "lcb_judge:arc190",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100263": {
+    "pid": "100263",
+    "contest_id": "lcb_judge:arc193",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.875,
+      "2": 0.991667,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.875,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100261": {
+    "pid": "100261",
+    "contest_id": "lcb_judge:arc192",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0625,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "100039": {
+    "pid": "100039",
+    "contest_id": "lcb_judge:abc379",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100255": {
+    "pid": "100255",
+    "contest_id": "lcb_judge:arc191",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.4375,
+    "counts": {
+      "n_C": 0,
+      "n_T": 9,
+      "n_W": 7,
+      "n_W_star": 0,
+      "n_clusters": 1,
+      "max_wrong_cluster": 7
+    },
+    "difficulty": "hard"
+  },
+  "100053": {
+    "pid": "100053",
+    "contest_id": "lcb_judge:abc381",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100040": {
+    "pid": "100040",
+    "contest_id": "lcb_judge:abc379",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100024": {
+    "pid": "100024",
+    "contest_id": "lcb_judge:abc377",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100034": {
+    "pid": "100034",
+    "contest_id": "lcb_judge:abc378",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 1.0,
+    "counts": {
+      "n_C": 16,
+      "n_T": 0,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "100029": {
+    "pid": "100029",
+    "contest_id": "lcb_judge:abc378",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.375,
+      "2": 0.625,
+      "4": 0.884615,
+      "8": 0.996503,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.375,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "hard"
+  },
+  "100074": {
+    "pid": "100074",
+    "contest_id": "lcb_judge:abc385",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "usaco-1039_silver_cereal": {
+    "pid": "usaco-1039_silver_cereal",
+    "contest_id": "usaco:usaco-open20results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-1087_silver_no_time_to_paint": {
+    "pid": "usaco-1087_silver_no_time_to_paint",
+    "contest_id": "usaco:usaco-jan21results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-1160_silver_convoluted_intervals": {
+    "pid": "usaco-1160_silver_convoluted_intervals",
+    "contest_id": "usaco:usaco-dec21results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-1232_silver_cow_operations": {
+    "pid": "usaco-1232_silver_cow_operations",
+    "contest_id": "usaco:usaco-open22results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-1303_silver_cow-libi": {
+    "pid": "usaco-1303_silver_cow-libi",
+    "contest_id": "usaco:usaco-feb23results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-192_silver_balanced_cow_breeds": {
+    "pid": "usaco-192_silver_balanced_cow_breeds",
+    "contest_id": "usaco:usaco-nov12results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.125,
+      "2": 0.241667,
+      "4": 0.45,
+      "8": 0.766667,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.04,
+      "2": 0.09,
+      "4": 0.275,
+      "8": 0.485,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": 0.0225,
+      "2": 0.035,
+      "4": -0.025,
+      "8": 0.015,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0625,
+    "chk_pass_rate": 0.0625,
+    "counts": {
+      "n_C": 1,
+      "n_T": 15,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-263_silver_farm_painting": {
+    "pid": "usaco-263_silver_farm_painting",
+    "contest_id": "usaco:usaco-mar13results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-380_silver_cross_country_skiing": {
+    "pid": "usaco-380_silver_cross_country_skiing",
+    "contest_id": "usaco:usaco-jan14results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0625,
+      "2": 0.125,
+      "4": 0.25,
+      "8": 0.5,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0625,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-549_silver_bessie_goes_moo": {
+    "pid": "usaco-549_silver_bessie_goes_moo",
+    "contest_id": "usaco:usaco-open15results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-763_silver_milk_measurement": {
+    "pid": "usaco-763_silver_milk_measurement",
+    "contest_id": "usaco:usaco-dec17results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-834_silver_out_of_sorts": {
+    "pid": "usaco-834_silver_out_of_sorts",
+    "contest_id": "usaco:usaco-open18results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-90_silver_tile_exchanging": {
+    "pid": "usaco-90_silver_tile_exchanging",
+    "contest_id": "usaco:usaco-nov11results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "usaco-967_silver_meetings": {
+    "pid": "usaco-967_silver_meetings",
+    "contest_id": "usaco:usaco-dec19results-silver",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "silver"
+  },
+  "lcb-l-leetcode-2877": {
+    "pid": "lcb-l-leetcode-2877",
+    "contest_id": "leetcode:weekly-contest-356",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.3125,
+      "2": 0.541667,
+      "4": 0.818681,
+      "8": 0.987179,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.3125,
+      "2": 0.541667,
+      "4": 0.818681,
+      "8": 0.987179,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.27,
+      "2": 0.6,
+      "4": 0.82,
+      "8": 0.985,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.3125,
+      "2": 0.541667,
+      "4": 0.818681,
+      "8": 0.987179,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": 0.0425,
+      "2": -0.058333,
+      "4": -0.001319,
+      "8": 0.002179,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.3125,
+    "counts": {
+      "n_C": 5,
+      "n_T": 11,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "cfo-2039B": {
+    "pid": "cfo-2039B",
+    "contest_id": "cfo:cf2039",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "cf1000"
+  },
+  "lcb-n92-atcoder-abc313_b": {
+    "pid": "lcb-n92-atcoder-abc313_b",
+    "contest_id": "lcb_n92:abc313",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.4375,
+      "2": 0.7,
+      "4": 0.930769,
+      "8": 0.999301,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.4375,
+      "2": 0.7,
+      "4": 0.930769,
+      "8": 0.999301,
+      "16": 1.0
+    },
+    "select_at_k": {
+      "1": 0.425,
+      "2": 0.615,
+      "4": 0.93,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "select_at_k_exact": {
+      "1": 0.4375,
+      "2": 0.7,
+      "4": 0.930769,
+      "8": 0.999301,
+      "16": 1.0
+    },
+    "gap_at_k": {
+      "1": 0.0125,
+      "2": 0.085,
+      "4": 0.000769,
+      "8": -0.000699,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.4375,
+    "counts": {
+      "n_C": 7,
+      "n_T": 9,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "medium"
+  },
+  "apps-cf-3992": {
+    "pid": "apps-cf-3992",
+    "contest_id": "apps_cf:cf1254",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "cf2100"
+  },
+  "apps-cf-96": {
+    "pid": "apps-cf-96",
+    "contest_id": "apps_cf:cf1271",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "cf2100"
+  },
+  "apps-cf-1987": {
+    "pid": "apps-cf-1987",
+    "contest_id": "apps_cf:cf774",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "cf2100"
+  },
+  "apps-cf-206": {
+    "pid": "apps-cf-206",
+    "contest_id": "apps_cf:cf1146",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "cf2100"
+  },
+  "apps-cf-4107": {
+    "pid": "apps-cf-4107",
+    "contest_id": "apps_cf:cf1216",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.0,
+    "chk_pass_rate": 0.0625,
+    "counts": {
+      "n_C": 0,
+      "n_T": 15,
+      "n_W": 1,
+      "n_W_star": 0,
+      "n_clusters": 1,
+      "max_wrong_cluster": 1
+    },
+    "difficulty": "cf2100"
+  },
+  "apps-cf-4134": {
+    "pid": "apps-cf-4134",
+    "contest_id": "apps_cf:cf1006",
+    "n_eval": 16,
+    "k_list": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "pass_at_k": {
+      "1": 0.4375,
+      "2": 0.7,
+      "4": 0.930769,
+      "8": 0.999301,
+      "16": 1.0
+    },
+    "cov_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "select_at_k_exact": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "gap_at_k": {
+      "1": 0.0,
+      "2": 0.0,
+      "4": 0.0,
+      "8": 0.0,
+      "16": 0.0
+    },
+    "n_subsets": 200,
+    "subset_seed": 42,
+    "is_critical": false,
+    "cluster_impure": false,
+    "eps_hat": 0.4375,
+    "chk_pass_rate": 0.0,
+    "counts": {
+      "n_C": 0,
+      "n_T": 16,
+      "n_W": 0,
+      "n_W_star": 0,
+      "n_clusters": 0,
+      "max_wrong_cluster": 0
+    },
+    "difficulty": "cf2100"
+  }
+}
